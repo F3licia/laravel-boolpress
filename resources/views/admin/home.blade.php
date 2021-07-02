@@ -1,5 +1,5 @@
 @extends('layouts.default')
-
+@extends('layouts.nav')
 
 @section('content')
 <div class="container">
@@ -15,7 +15,8 @@
                         </div>
                     @endif
 
-                    {{ __('welcome admin') }}
+                    {{ __('Welcome Admin') }}
+                    
                 </div>
             </div>
         </div>
