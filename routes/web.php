@@ -29,8 +29,7 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('/posts', 'PostController@index')->name('posts.index');
-
-
+        Route::get('/posts/create','PostController@create')->name('posts.create');
     });
 
    
