@@ -30,7 +30,7 @@ Route::prefix('admin')
         Route::get('/', 'HomeController@index')->name('home');
         Route::post('/posts', 'PostController@store')->name('posts.store');
         Route::get('/posts', 'PostController@index')->name('posts.index');
+        Route::get('/posts/{slug}', "PostController@show")->name("posts.show");
         Route::get('/posts/create','PostController@create')->name('posts.create');
     });
 
-   

@@ -15,7 +15,7 @@ class PostController extends Controller
         $posts = [
             'posts' => Post::all()
         ];
-        return view("posts.index", $posts);
+        return view("admin.posts.index", $posts);
     }
 
 
@@ -35,6 +35,16 @@ class PostController extends Controller
         $newpost->save();
         return redirect()->route('admin.posts.index');
     }
+
+    
+    function show($id) {
+        $post = Post::find($id);
+
+          if (is_null($post)) { abort(404);}
+
+        return view('admin.posts.show', [ "post"=>$post]);
+      }
+      
 
 }
 
