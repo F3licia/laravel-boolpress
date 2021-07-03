@@ -51,7 +51,7 @@ class PostController extends Controller
 
     public function allmine(){
 
-        $posts = Post::where('user_id', '=' , Auth::user()->id)->get();
+         $posts = Post::where('user_id', '=' , Auth::user()->id)->get();
         
             if (!$posts) {
                 abort(404);
@@ -59,6 +59,17 @@ class PostController extends Controller
         return view("admin.posts.all", [ "posts"=> $posts]);
 
     }
+
+    public function lastposts(){
+
+        $posts = Post::orderBy('created_at')->take(3)->get();
+
+           if (!$posts) {
+               abort(404);
+            }
+    return view("admin.posts.latest", [ "posts"=> $posts]);
+
+   }
 }
 
 
