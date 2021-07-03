@@ -3,15 +3,18 @@
 
 
 @section('content')
-   
-@foreach($posts as $post)
-
-    <h2>{{$post->title}}</h2>
-    <p>{{$post->content}}</p>
-    <a href="{{ route('admin.posts.show', $post->id) }}">More</a>
-    <img src="https://picsum.photos/200" alt="">
- 
+<div class="container">
     
-@endforeach
-
+    @foreach($posts as $post)
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
+            <div class="card-body">
+            <h3 class="card-title">{{$post->title}}</h3>
+            <h4>By {{$post->user->name}}</h4>
+            <p>On {{ $post->created_at->format('d M Y - H:i:s') }}</p>
+            <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Show more</a>
+            </div>
+        </div>
+    @endforeach
+</div>  
 @endsection

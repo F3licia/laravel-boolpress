@@ -2,9 +2,43 @@
 @extends('layouts.nav')
 
 @section('content')
-<h2>{{$post->title}}</h2>
-<p>{{$post->content}}</p>
-<p>{{$post->user->name}}</p>
-<p>{{ $post->created_at->format('d M Y - H:i:s') }}</p>
-<img src="https://picsum.photos/200" alt="">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                  <img src="https://picsum.photos/1100/250" class="figure-img img-fluid rounded"alt="Responsive image">
+
+                  <h3 class="text-uppercase">{{$post->title}}</h3>
+                  <h5>By {{$post->user->name}}</h5>
+                  <p>{{$post->content}}</p>                 
+                  <p>{{ $post->created_at->format('d M Y - H:i:s') }}</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
+
