@@ -14,12 +14,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                  
                    <h1> {{ Auth::user()->name}}</h1>
-                   <h2>Admin </h2>
-                   <h2>I tuoi post</h2>
-                   <h2>Ultima attività</h2>
+                   <h3>Status: Admin </h3>
+                   <h3>Ultima attività</h3>
                    
+                   <a href="{{ route('admin.posts.all')}}" class="btn btn-primary">Guarda tutti i tuoi post</a>
+
+
+
+
                    
                 </div>
             </div>

@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/posts', 'PostController@index')->name('index');
+//Route::get('/posts', 'PostController@index')->name('index');
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -30,8 +30,13 @@ Route::prefix('admin')
         Route::get('/', 'HomeController@index')->name('home');
         Route::post('/posts', 'PostController@store')->name('posts.store');
         Route::get('/posts', 'PostController@index')->name('posts.index');
+    
         Route::get('/posts/create','PostController@create')->name('posts.create');
+        Route::get('/posts/all', "PostController@allmine")->name("posts.all");
         Route::get('/posts/{id}', "PostController@show")->name("posts.show");
-       
+
+        
+        
     });
+
 

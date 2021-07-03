@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str; //questa classe va importata per la slug
+
 
 class PostController extends Controller
 {
  
-    public function index()
+    function index()
     {
         $posts = [
             'posts' => Post::all()
@@ -44,8 +46,19 @@ class PostController extends Controller
 
         return view('admin.posts.show', [ "post"=>$post]);
       }
-      
 
+//////Filtro "i miei post"
+
+    public function allmine(){
+
+        $posts = Post::where('user_id', '=' , Auth::user()->id)->get();
+        
+            if (!$posts) {
+                abort(404);
+            }
+        return view("admin.posts.all", [ "posts"=> $posts]);
+
+    }
 }
 
 
