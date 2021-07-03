@@ -62,7 +62,7 @@ class PostController extends Controller
 
     public function lastposts(){
 
-        $posts = Post::orderBy('created_at')->take(3)->get();
+        $posts = Post::orderBy('created_at', 'DESC')->take(3)->get();
 
            if (!$posts) {
                abort(404);

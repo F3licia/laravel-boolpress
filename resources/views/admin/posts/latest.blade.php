@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <div class="container">
+    <div class="container ">
 
         @foreach ($posts as $post)
             <div class="card" style="width: 18rem;">
