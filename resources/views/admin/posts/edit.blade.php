@@ -30,7 +30,21 @@
                     </div>
 
                     <div class="card-body">
+
                         <textarea name="content" class="form-control" aria-label="With textarea" rows="8">{{$post->content}}</textarea>
+
+                        <select name="category_id" id="">
+                            <option value="">Seleziona una categoria</option>
+
+                            @foreach($categories as $category)
+
+                                <option value="{{$category->id}}">
+                                    {{ $category->name }}
+                                </option>
+
+                            @endforeach
+                        </select>
+                        
                         <input type="submit" value="invia">
                     </div>
                 </div>            

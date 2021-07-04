@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/categories', 'CategoryController@index')->name('categories.index');
 //Route::get('/posts', 'PostController@index')->name('index');
 
 Route::prefix('admin')
@@ -38,7 +39,7 @@ Route::prefix('admin')
         Route::get('/posts/{id}', "PostController@show")->name("posts.show");
         Route::match(["PUT", "PATCH"], '/posts/{Id}', 'PostController@update')->name('posts.update');
         Route::delete('/posts/{Id}', 'PostController@destroy')->name('posts.destroy');
-        Route::get('/posts/{Id}/edit', 'PostController@edit')->name('posts.edit');
+        Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');
         
     });
 

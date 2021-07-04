@@ -17,7 +17,7 @@ class CategoriesTableSeeder extends Seeder
         foreach ($categories as $category) {
             $new_category_object = new Category();
             $new_category_object->name = $category;
-            $new_category_object->slug = Str::slug($category);
+            $new_category_object->slug = Str::slug($category); //sarà unica perchè le categorie sono statiche
             $new_category_object->save();
         }
     }

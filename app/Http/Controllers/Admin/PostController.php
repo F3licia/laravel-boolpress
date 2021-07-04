@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
 use App\Post;
+use App\Category;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str; //questa classe va importata per la slug
@@ -22,7 +23,8 @@ class PostController extends Controller
 
 
     function create(){
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', ["categories" => $categories]);
     }
 
     function store(Request $request){
@@ -41,17 +43,21 @@ class PostController extends Controller
     
     function show($id) {
         $post = Post::find($id);
-
           if (is_null($post)) { abort(404);}
-
-        return view('admin.posts.show', [ "post"=>$post]);
+          return view('admin.posts.show', [ "post"=>$post]);
       }
 
-    function edit($id){
-        $post = post::findOrFail($id);
-        return view("admin.posts.edit", [ "post" => $post ]);
+    public function edit(Post $post) {
+        $categories = Category::all();
+
+            $data = [
+                'post' => $post,
+                'categories' => $categories
+            ];
+
+        return view('admin.posts.edit', $data);
     }
-    
+
     function update(Request $request, $id){   
         $post = post::find($id); 
 
