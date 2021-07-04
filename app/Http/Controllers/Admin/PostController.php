@@ -47,6 +47,36 @@ class PostController extends Controller
         return view('admin.posts.show', [ "post"=>$post]);
       }
 
+    function edit($id){
+        $post = post::findOrFail($id);
+        return view("admin.posts.edit", [ "post" => $post ]);
+    }
+    
+    function update(Request $request, $id){   
+        $post = post::find($id); 
+
+        $Data = $request->all();        
+        $post->update($Data);  
+        return redirect()->route('admin.posts.index', $post->id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //////Filtro "i miei post"
 
     public function allmine(){
@@ -59,6 +89,7 @@ class PostController extends Controller
         return view("admin.posts.all", [ "posts"=> $posts]);
 
     }
+//////Filtro "gli ultimi n post"
 
     public function lastposts(){
 

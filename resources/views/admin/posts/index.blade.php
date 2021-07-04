@@ -17,6 +17,7 @@
             <h3 class="card-title">{{ substr($post->content, 0, 50)."..."}}</h3>
             
             <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Show more</a>
+            <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a> 
             </div>
         </div>
     @endforeach
