@@ -60,21 +60,12 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index', $post->id);
     }
 
+    function destroy($id) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect()->route('admin.posts.index');
+    }
 
 
 //////Filtro "i miei post"

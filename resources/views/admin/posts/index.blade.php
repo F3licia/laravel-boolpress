@@ -18,6 +18,8 @@
             
             <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Show more</a>
             <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a> 
+            @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
+
             </div>
         </div>
     @endforeach

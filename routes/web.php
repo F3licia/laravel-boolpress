@@ -30,15 +30,15 @@ Route::prefix('admin')
         Route::get('/', 'HomeController@index')->name('home');
         Route::post('/posts', 'PostController@store')->name('posts.store');
         Route::get('/posts', 'PostController@index')->name('posts.index');
-    
         Route::get('/posts/create','PostController@create')->name('posts.create');
+
         Route::get('/posts/all', "PostController@allmine")->name("posts.all");
         Route::get('/posts/latest', "PostController@lastposts")->name("posts.latest");
+
         Route::get('/posts/{id}', "PostController@show")->name("posts.show");
         Route::match(["PUT", "PATCH"], '/posts/{Id}', 'PostController@update')->name('posts.update');
+        Route::delete('/posts/{Id}', 'PostController@destroy')->name('posts.destroy');
         Route::get('/posts/{Id}/edit', 'PostController@edit')->name('posts.edit');
-
-        
         
     });
 
