@@ -13,6 +13,8 @@
 
 @section('content')
 <div class="container">
+
+    
     <div class="row justify-content-center">
         <div class="col-md-12">
 
@@ -34,8 +36,7 @@
                             <option value="">Seleziona una categoria</option>
 
                             @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"
-                                {{ $category->id == old('category_id', '') ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}"> 
                                 {{ $category->name }}
                             </option>
                             

@@ -82,7 +82,7 @@ class PostController extends Controller
             if (!$posts) {
                 abort(404);
             }
-        return view("admin.posts.all", [ "posts"=> $posts]);
+        return view("admin.posts.mine", [ "posts"=> $posts]);
 
     }
 //////Filtro "gli ultimi n post"

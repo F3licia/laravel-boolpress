@@ -33,7 +33,7 @@ Route::prefix('admin')
         Route::get('/posts', 'PostController@index')->name('posts.index');
         Route::get('/posts/create','PostController@create')->name('posts.create');
 
-        Route::get('/posts/all', "PostController@allmine")->name("posts.all");
+        Route::get('/posts/mine', "PostController@allmine")->name("posts.mine");
         Route::get('/posts/latest', "PostController@lastposts")->name("posts.latest");
 
         Route::get('/posts/{id}', "PostController@show")->name("posts.show");

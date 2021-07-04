@@ -16,9 +16,9 @@
                     @endif
                   
                    <h1> {{ Auth::user()->name}}</h1>
-                   <h3>Status: Admin </h3>
-                   <a href="{{ route('admin.posts.latest')}}" >Le ultime pubblicazioni</a>                
-                   <a href="{{ route('admin.posts.all')}}" >Guarda tutti i tuoi post</a>
+                   <h4>Status: Admin </h4>
+                   <h4><a href="{{ route('admin.posts.latest')}}" >Le ultime pubblicazioni</a></h4>                
+                   <h4><a href="{{ route('admin.posts.mine')}}" >Guarda tutti i tuoi post</a></h4>
 
                 </div>
             </div>
