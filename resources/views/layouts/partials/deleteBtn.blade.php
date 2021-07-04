@@ -3,5 +3,6 @@
       
         @method('DELETE')
       
-        <input type="submit" value="Delete"> {{--submit dove? Al macero--}}
+        <input type="submit"class="btn btn-primary"  value="Delete">
+
       </form>
