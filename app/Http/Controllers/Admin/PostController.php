@@ -58,12 +58,11 @@ class PostController extends Controller
         return view('admin.posts.edit', $data);
     }
 
-    function update(Request $request, $id){   
-        $post = post::find($id); 
-
+    function update(Request $request, Post $post){   
+  
         $Data = $request->all();        
         $post->update($Data);  
-        return redirect()->route('admin.posts.index', $post->id);
+        return redirect()->route('admin.posts.index');
     }
 
     function destroy($id) {

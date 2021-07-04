@@ -33,12 +33,12 @@
                         <select name="category_id" id="">
                             <option value="">Seleziona una categoria</option>
 
-                            @foreach($categories as $category)
-
-                                <option value="{{$category->id}}">
-                                    {{ $category->name }}
-                                </option>
-
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ $category->id == old('category_id', '') ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                            
                             @endforeach
                         </select>
                         

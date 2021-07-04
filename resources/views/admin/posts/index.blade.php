@@ -11,10 +11,12 @@
         <div class="card mb-auto p-2" style="width: 18rem">
             <img class="card-img-top" src="https://picsum.photos/200/100" alt="Card image cap">
             <div class="card-body">
-                <h2 class="card-title text-uppercase">{{$post->title}}</h2>
+                <h2 class="card-title text-uppercase">{{$post->title}} </h2>
+                  <h4 class="font-italic"> {{ $post->category ? 'in '.$post->category->name : '-' }} <h4>
+                
                 <h4>By {{$post->user->name}}</h4>
                 <p>On {{ $post->created_at->format('d M Y - H:i:s') }}</p>
-                <h3 class="card-text">{{ substr($post->content, 0, 50)."..."}}</h3>
+                <h3 class="card-text">{{ substr($post->content, 0, 100)."..."}}</h3>
                 
                 <div class="d-flex justify-content-center align-items-start"> 
                     <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary"> More </a>
