@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Post;
 use App\Category;
+use App\Post;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -110,14 +111,14 @@ class PostController extends Controller
 
     public function allmine(){
 
-         $posts = Post::where('user_id', '=' , Auth::user()->id)->get();
+         $posts = Post::where('user_id', '=' , Auth::user()->id )->get();
         
             if (!$posts) {
                 abort(404);
             }
         return view("admin.posts.mine", [ "posts"=> $posts]);
-
     }
+
 //////Filtro "gli ultimi n post"
 
     public function lastposts(){
@@ -130,6 +131,9 @@ class PostController extends Controller
     return view("admin.posts.latest", [ "posts"=> $posts]);
 
    }
+
+
+
 }
 
 
