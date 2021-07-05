@@ -25,7 +25,7 @@
                 <div class="form-group">
 
                     <div class="card-header">
-                        <textarea name="title" class="form-control" aria-label="With textarea" style="resize: none" placeholder="Inizia con un titolo"></textarea>
+                        <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none" placeholder="Inizia con un titolo"></textarea>
                     </div>
                     
 

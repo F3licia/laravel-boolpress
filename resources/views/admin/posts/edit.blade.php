@@ -31,11 +31,24 @@
 
                     <div class="card-body">
 
-                        <textarea name="title" class="form-control" aria-label="With textarea" style="resize: none">{{$post->title}}</textarea>
+                        <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none">{{$post->title}}</textarea>
 
                         <textarea name="content" class="form-control" aria-label="With textarea" rows="8">{{$post->content}}</textarea>
 
                         
+                            <select name="category_id" id="">
+                                <option value="">Seleziona una categoria</option>
+
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"   {{ ($category->id == $post->category_id) ? 'selected' : '' }}>
+                                    > 
+                                    {{ $category->name }}
+                                </option>
+                                
+                                @endforeach
+                            </select>
+
+
                         <input type="submit" value="salva le modifiche">
                     </div>
                 </div>            

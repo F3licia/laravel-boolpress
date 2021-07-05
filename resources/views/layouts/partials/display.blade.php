@@ -14,7 +14,7 @@
                     <h3 class="card-text">{{ substr($post->content, 0, 100)."..."}}</h3>
                     
                     <div class="d-flex justify-content-center align-items-start justify-content-around"> 
-                        <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary"> More </a>
+                        <a href="{{ route('admin.posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
                         <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
                         @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
                     </div> 

@@ -53,10 +53,15 @@ class PostController extends Controller
     }
 
     
-    function show($id) {
-        $post = Post::find($id);
-          if (is_null($post)) { abort(404);}
-          return view('admin.posts.show', [ "post"=>$post]);
+    function show($slug) {
+
+        $post = Post::where('slug', $slug)->first();
+
+            if(!$post){
+                abort(404);
+            }
+      
+          return view('admin.posts.show', [ 'post' => $post]);
       }
 
     public function edit(Post $post) {
