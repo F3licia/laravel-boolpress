@@ -36,7 +36,7 @@ Route::prefix('admin')
         Route::get('/posts/mine', "PostController@allmine")->name("posts.mine");
         Route::get('/posts/latest', "PostController@lastposts")->name("posts.latest");
 
-        Route::get('/posts/{id}', "PostController@show")->name("posts.show");
+        Route::get('/posts/{Slug}', "PostController@show")->name("posts.show");
         Route::match(["PUT", "PATCH"], '/posts/{post}', 'PostController@update')->name('posts.update');
         Route::delete('/posts/{Id}', 'PostController@destroy')->name('posts.destroy');
         Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');

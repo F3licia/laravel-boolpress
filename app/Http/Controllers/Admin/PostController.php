@@ -33,8 +33,20 @@ class PostController extends Controller
         $newpost->fill($Data);
         $newpost->user_id = $request->user()->id; //la foreign key prende il suo valore qui
 
-        $slug = Str::slug($newpost->title); //va implementato
+        $slug = Str::slug($newpost->title); 
+
+//----------
+        $slug_base = $slug;
+        $actual_post = Post::where('slug', $slug)->first(); //first() method is used to return the first of the element of a TreeSet. The first element here is being referred to the lowest of the elements in the set.
+        $contatore = 1;
+
+            while ($actual_post) {
+                $slug = $slug_base . '-' . $contatore;
+                $contatore++;
+                $actual_post = Post::where('slug', $slug)->first();
+            }
         $newpost->slug = $slug;
+//----------
 
         $newpost->save();
         return redirect()->route('admin.posts.index');
@@ -60,7 +72,23 @@ class PostController extends Controller
 
     function update(Request $request, Post $post){   
   
-        $Data = $request->all();        
+        $Data = $request->all();     
+//---       
+        if ($Data['title'] != $post->title) {
+
+            $slug = Str::slug($Data['title']);
+            $slug_base = $slug;
+            $actual_post = Post::where('slug', $slug)->first();
+            $contatore = 1;
+
+                while ($actual_post) {
+                    $slug = $slug_base . '-' . $contatore;
+                    $contatore++;
+                    $actual_post = Post::where('slug', $slug)->first();
+                }
+            $Data['slug'] = $slug;
+            }
+            
         $post->update($Data);  
         return redirect()->route('admin.posts.index');
     }

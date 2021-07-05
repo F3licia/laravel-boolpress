@@ -9,6 +9,7 @@
                       <h4 class="font-italic"> {{ $post->category ? 'in '.$post->category->name : ' ' }} <h4>
                     
                     <h4>di {{$post->user->name}}</h4>
+                    <h4>questo è lo slug{{$post->slug}}</h4>
                     <p>On {{ $post->created_at->format('d M Y') }}</p>
                     <h3 class="card-text">{{ substr($post->content, 0, 100)."..."}}</h3>
                     
