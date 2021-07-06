@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Post;
-
+use App\Tag;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -25,7 +25,13 @@ class PostController extends Controller
 
     function create(){
         $categories = Category::all();
-        return view('admin.posts.create', ["categories" => $categories]);
+        $tags = Tag::all();
+            $data = [       
+                'categories' => $categories,
+                'tags' => $tags
+            ];
+
+        return view('admin.posts.create', $data);
     }
 
     function store(Request $request){
@@ -49,7 +55,9 @@ class PostController extends Controller
         $newpost->slug = $slug;
 //----------
 
+     
         $newpost->save();
+        
         return redirect()->route('admin.posts.index');
     }
 
@@ -66,11 +74,13 @@ class PostController extends Controller
       }
 
     public function edit(Post $post) {
-        $categories = Category::all();
 
+        $categories = Category::all();
+        $tags = Tag::all();
             $data = [
                 'post' => $post,
-                'categories' => $categories
+                'categories' => $categories,
+                'tags' => $tags
             ];
 
         return view('admin.posts.edit', $data);
@@ -78,11 +88,11 @@ class PostController extends Controller
 
     function update(Request $request, Post $post){   
   
-        $Data = $request->all();     
+        $form_data = $request->all();     
 //---       
-        if ($Data['title'] != $post->title) {
+        if ($form_data ['title'] != $post->title) {
 
-            $slug = Str::slug($Data['title']);
+            $slug = Str::slug($form_data ['title']);
             $slug_base = $slug;
             $actual_post = Post::where('slug', $slug)->first();
             $contatore = 1;
@@ -92,11 +102,20 @@ class PostController extends Controller
                     $contatore++;
                     $actual_post = Post::where('slug', $slug)->first();
                 }
-            $Data['slug'] = $slug;
-            }
-            
-        $post->update($Data);  
+            $form_data ['slug'] = $slug;
+        }
+
+
+        if (!key_exists("tags", $form_data )) {
+            $form_data ["tags"] = [];
+        }
+
+        $post->tags()->sync($form_data ["tags"]); //
+
+
+        $post->update($form_data );
         return redirect()->route('admin.posts.index');
+
     }
 
     function destroy($id) {

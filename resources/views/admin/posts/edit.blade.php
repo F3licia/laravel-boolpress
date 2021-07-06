@@ -13,48 +13,50 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-
-            <div class="card">
-                <form action ="{{route('admin.posts.update', $post->id)}}" method="post"> 
-                    @csrf
+    <div class="container">
+    
+        <form action ="{{route('admin.posts.update', $post->id)}}" method="post"> 
+            @csrf
                     
-                    @method('PATCH')
+            @method('PATCH')
 
-                <div class="form-group">
-                     
-                    <div class="card-header">
+                    <div class="">
                         <h5>Stai modificando il post di {{$post->user->name}} del {{$post->created_at->format('d M Y') }} ({{$post->created_at->format('H:i') }})</h5>
                     </div>
 
-                    <div class="card-body">
+                    <div class="">
 
-                        <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none">{{$post->title}}</textarea>
+                    <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none">{{$post->title}}</textarea>
 
-                        <textarea name="content" class="form-control" aria-label="With textarea" rows="8">{{$post->content}}</textarea>
+                    <textarea name="content" class="form-control" aria-label="With textarea" rows="8">{{$post->content}}</textarea>
 
                         
-                            <select name="category_id" id="">
-                                <option value="">Seleziona una categoria</option>
+                        <select name="category_id" id="">
 
-                                @foreach ($categories as $category)
+                            <option value="">Seleziona una categoria</option>
+
+                            @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" {{ ($category->id == $post->category_id) ? 'selected' : '' }}> 
                                     {{ $category->name }}
                                 </option>
                                 
-                                @endforeach
-                            </select>
+                            @endforeach
+                        </select>
 
+                        @foreach($tags as $tag)
+                            <div class="form-check form-check-inline">
+                                
+                                <label class="form-check-label">
+                                    {{$tag->name}}
+                                    <input name="tags[]" class="form-check-input" type="checkbox" value="{{$tag->id}}">              
+                                </label> 
+
+                            </div>
+                        @endforeach
 
                         <input type="submit" value="salva le modifiche">
-                    </div>
-                </div>            
-                </form>
-            </div>
-        </div>
+                              
+        </form>
     </div>
-</div>
 
 @endsection

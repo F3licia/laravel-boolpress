@@ -14,22 +14,14 @@
 @section('content')
 <div class="container">
 
-    
-    <div class="row justify-content-center">
-        <div class="col-md-12">
+   
 
-            <div class="card">
+        <div class="">
                 <form action ="{{route('admin.posts.store')}}" method="post"> {{----}}
-                @csrf {{----}}
+                    @csrf {{----}}
 
-                <div class="form-group">
-
-                    <div class="card-header">
                         <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none" placeholder="Inizia con un titolo"></textarea>
-                    </div>
-                    
-
-                    <div class="card-body">
+                                    
                         <textarea name="content" class="form-control" aria-label="With textarea" rows="8" placeholder="Di cosa vuoi parlare?"></textarea>
 
                         <select name="category_id" id="">
@@ -43,14 +35,24 @@
                             @endforeach
                         </select>
                         
-                        <input type="submit" value="invia">
+                       @foreach($tags as $tag)
+                            <div class="form-check form-check-inline">
+                            
+                                <label class="form-check-label">
+                                    {{$tag->name}}
+                                    <input name="tags[]" class="form-check-input" type="checkbox" value="{{$tag->id}}" >              
+                                </label> 
 
-                    </div>
-                </div>            
+                            </div>
+                        @endforeach
+
+                    <input type="submit" value="invia">
+
+                  
+                         
                 </form>
-            </div>
         </div>
-    </div>
+    
 </div>
 @endsection
 

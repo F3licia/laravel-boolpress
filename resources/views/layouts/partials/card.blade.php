@@ -11,7 +11,22 @@
                    {{ $post->category ? 'in '.$post->category->name : ' ' }} 
                 </h4>
 
-                <p>{{$post->content}}</p>                 
+                <p>{{$post->content}}</p>  
+               
+                <p>Tags</p> {{--!!--}}
+                  
+                    @if(count($post->tags) > 0)
+                        @foreach($post->tags as $tag)
+                            <span class="badge badge-primary">{{ $tag->name }}</span>
+                        @endforeach
+                    @else
+                        <em>Nessun tag disponibile</em>
+                    @endif
+
+
+
+
+
                 <p>{{ $post->created_at->format('d M Y - H:i:s') }}</p>
                 
                 </div>
