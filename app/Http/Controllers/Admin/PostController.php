@@ -14,6 +14,8 @@ use Illuminate\Support\Str; //questa classe va importata per la slug
 class PostController extends Controller
 {
  
+//---------------------------------------------------INDEX
+
     function index()
     {
         $posts = [
@@ -22,7 +24,7 @@ class PostController extends Controller
         return view("admin.posts.index", $posts);
     }
 
-
+//-------------------------------------------------------CREATE
     function create(){
         $categories = Category::all();
         $tags = Tag::all();
@@ -34,15 +36,17 @@ class PostController extends Controller
         return view('admin.posts.create', $data);
     }
 
+//----------------------------------------------------STORE
+
     function store(Request $request){
-        $Data = $request->all();  
+        $form_data = $request->all();  
         $newpost = new post();   
-        $newpost->fill($Data);
+        $newpost->fill($form_data);
         $newpost->user_id = $request->user()->id; //la foreign key prende il suo valore qui
 
         $slug = Str::slug($newpost->title); 
 
-//----------
+        //--------
         $slug_base = $slug;
         $actual_post = Post::where('slug', $slug)->first(); //first() method is used to return the first of the element of a TreeSet. The first element here is being referred to the lowest of the elements in the set.
         $contatore = 1;
@@ -53,14 +57,20 @@ class PostController extends Controller
                 $actual_post = Post::where('slug', $slug)->first();
             }
         $newpost->slug = $slug;
-//----------
+        //----------
 
+        if (!key_exists("tags", $form_data )) {
+            $form_data ["tags"] = [];
+        }
+
+        $newpost->tags()->sync($form_data ["tags"]); //errore
      
         $newpost->save();
         
         return redirect()->route('admin.posts.index');
     }
 
+//------------------------------------------------------SHOW
     
     function show($slug) {
 
@@ -72,6 +82,8 @@ class PostController extends Controller
       
           return view('admin.posts.show', [ 'post' => $post]);
       }
+
+//---------------------------------------------------------EDIT
 
     public function edit(Post $post) {
 
@@ -86,10 +98,12 @@ class PostController extends Controller
         return view('admin.posts.edit', $data);
     }
 
+//----------------------------------------------------------UPDATE
+
     function update(Request $request, Post $post){   
   
         $form_data = $request->all();     
-//---       
+        //---       
         if ($form_data ['title'] != $post->title) {
 
             $slug = Str::slug($form_data ['title']);
@@ -104,7 +118,7 @@ class PostController extends Controller
                 }
             $form_data ['slug'] = $slug;
         }
-
+        //---  
 
         if (!key_exists("tags", $form_data )) {
             $form_data ["tags"] = [];
@@ -117,6 +131,7 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index');
 
     }
+//----------------------------------------------DESTROY
 
     function destroy($id) {
 
@@ -126,7 +141,10 @@ class PostController extends Controller
     }
 
 
-//////Filtro "i miei post"
+
+    
+
+//---Filtro "i miei post" --------------------------------------------//
 
     public function allmine(){
 
@@ -138,7 +156,7 @@ class PostController extends Controller
         return view("admin.posts.mine", [ "posts"=> $posts]);
     }
 
-//////Filtro "gli ultimi n post"
+//Filtro "gli ultimi n post"
 
     public function lastposts(){
 
@@ -150,7 +168,6 @@ class PostController extends Controller
     return view("admin.posts.latest", [ "posts"=> $posts]);
 
    }
-
 
 
 }
