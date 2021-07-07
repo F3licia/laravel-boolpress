@@ -16,12 +16,22 @@ class PostController extends Controller
  
 //---------------------------------------------------INDEX
 
-    function index()
-    {
-        $posts = [
-            'posts' => Post::all()
-        ];
-        return view("admin.posts.index", $posts);
+    function index(Request $request){
+
+    $incomingData = session("post");
+
+        if(isset($incomingData)){
+
+            $posts = [
+                'posts' => $incomingData
+            ];
+
+        }else{
+            $posts = [
+                'posts' => Post::all()
+            ];
+            return view("admin.posts.index", $posts);
+        }
     }
 
 //-------------------------------------------------------CREATE
@@ -152,7 +162,7 @@ class PostController extends Controller
             if (!$posts) {
                 abort(404);
             }
-        return view("admin.posts.mine", [ "posts"=> $posts]);
+        return view("admin.posts.index")->with([ "posts"=> $posts]); //provo a passare dei dati extra
     }
 
 //Filtro "gli ultimi n post"
@@ -164,7 +174,7 @@ class PostController extends Controller
            if (!$posts) {
                abort(404);
             }
-    return view("admin.posts.latest", [ "posts"=> $posts]);
+    return view("admin.posts.index")->with([ "posts"=> $posts]);
 
    }
 
