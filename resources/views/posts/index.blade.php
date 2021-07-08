@@ -5,7 +5,7 @@
 
     @guest
         <div class="container d-flex align-items-center flex-column ">
-            <h3>Whanna see more? Join us!</h3>
+            <h3>Wanna read more? Join us!</h3>
             <h3>
                 @if (Route::has('login'))
                 <a href="{{ route('login') }}">Login</a>
@@ -18,7 +18,7 @@
             
         </div>
 
-        @include('layouts.partials.display', [ "posts" => $posts, "resource" => "posts" ])
+        @include('layouts.partials.public_display', [ "posts" => $posts, "resource" => "posts" ])
 
     @endguest
     

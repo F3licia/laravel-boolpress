@@ -23,10 +23,6 @@
                         <em>Nessun tag disponibile</em>
                     @endif
 
-
-
-
-
                 <p>{{ $post->created_at->format('d M Y - H:i:s') }}</p>
                 
                 </div>

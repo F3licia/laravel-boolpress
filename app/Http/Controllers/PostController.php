@@ -17,5 +17,17 @@ class PostController extends Controller
 
         return view('posts.index', ['posts'=> $posts]);
     }
+
+    function show($slug) {
+
+        $post = Post::where('slug', $slug)->first();
+
+            if(!$post){
+                abort(404);
+            }
+      
+          return view('posts.show', [ 'post' => $post]);
+      }
+
 }
 

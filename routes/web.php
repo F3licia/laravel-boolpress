@@ -25,6 +25,7 @@ Auth::routes();
 //Route::get('/posts/public', 'PostController@publichome')->name('public');
 
 Route::get('/posts', 'PostController@index')->name('index');
+Route::get('/posts/{slug}', "PostController@show")->name("posts.show");
 
 Route::prefix('admin')
     ->namespace('Admin')
