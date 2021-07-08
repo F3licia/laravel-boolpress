@@ -3,7 +3,7 @@
 
 @section('content')
 
-    @guest
+
         <div class="container d-flex align-items-center flex-column ">
             <h3>Wanna read more? Join us!</h3>
             <h3>
@@ -20,6 +20,6 @@
 
         @include('layouts.partials.public_display', [ "posts" => $posts, "resource" => "posts" ])
 
-    @endguest
+
     
 @endsection
