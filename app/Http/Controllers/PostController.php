@@ -8,8 +8,14 @@ use App\Post;
 class PostController extends Controller
 {
     function index() {
-       // $posts = post::all();
+        
+        $posts = Post::orderBy('created_at', 'DESC')->take(3)->get();
 
-        //return view('posts.index', ['posts'=> $posts]);
+        if (!$posts) {
+            abort(404);
+        }
+
+        return view('posts.index', ['posts'=> $posts]);
     }
 }
+

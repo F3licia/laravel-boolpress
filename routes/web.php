@@ -19,11 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+//Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/tags', 'TagController@index')->name('tags.index');
 //Route::get('/categories', 'CategoryController@index')->name('categories.index');
-//Route::get('/posts', 'PostController@index')->name('index');
+//Route::get('/posts/public', 'PostController@publichome')->name('public');
+
+Route::get('/posts', 'PostController@index')->name('index');
 
 Route::prefix('admin')
     ->namespace('Admin')
