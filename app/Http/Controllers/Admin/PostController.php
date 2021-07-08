@@ -182,8 +182,11 @@ class PostController extends Controller
     $filters = $request->all();
     
     $posts = Post::join("post_tag", "posts.id", "=", "post_tag.post_id")
-             ->where("post_tag.tag_id", $filters["tag"])->get();
+    //innerjoin tab 'Post' e tab 'post-tag' ,(condizione del join)
 
+             ->where("post_tag.tag_id", $filters["tag"])->get();
+            //mostra solo post dove il tag-id è uguale all'id nel request
+            
         return view("admin.posts.index")->with(["posts"=> $posts]);
         //conflitto col format date, risolto con carbon
     }
