@@ -174,9 +174,19 @@ class PostController extends Controller
            if (!$posts) {
                abort(404);
             }
-    return view("admin.posts.index")->with([ "posts"=> $posts]);
+    return view("admin.posts.index")->with(["posts"=> $posts]);
 
    }
+   
+   public function filter(Request $request) {
+    $filters = $request->all();
+    
+    $posts = Post::join("post_tag", "posts.id", "=", "post_tag.post_id")
+             ->where("post_tag.tag_id", $filters["tag"])->get();
+
+        return view("admin.posts.index")->with(["posts"=> $posts]);
+        //conflitto col format date, risolto con carbon
+    }
 
 
 }

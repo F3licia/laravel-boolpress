@@ -17,7 +17,13 @@
                   
                     @if(count($post->tags) > 0)
                         @foreach($post->tags as $tag)
-                            <span class="badge badge-primary">{{ $tag->name }}</span>
+
+
+
+                        <a href="{{ route('admin.posts.filter', ["tag"=>$tag->id]) }}">
+                            {{ $tag->name }}
+                          </a>
+
                         @endforeach
                     @else
                         <em>Nessun tag disponibile</em>
