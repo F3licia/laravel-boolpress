@@ -31,10 +31,13 @@
 
                 <p>{{ $post->created_at->format('d M Y - H:i') }}</p>
                 
+                @auth
+                    
                 <div class="d-flex align-items-start"> 
                     <a href="{{ route('admin.posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
                     <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
                     @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
+                @endauth
                 </div> 
                 </div>
             </div>
