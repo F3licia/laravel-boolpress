@@ -5,7 +5,7 @@ use App\Category;
 use App\Post;
 use App\Tag;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str; //questa classe va importata per la slug
@@ -132,9 +132,18 @@ class PostController extends Controller
         if (!key_exists("tags", $form_data )) {
             $form_data ["tags"] = [];
         }
+        $post->tags()->sync($form_data ["tags"]); 
 
-        $post->tags()->sync($form_data ["tags"]); //
 
+           if (key_exists("postCover", $form_data)) {
+            if ($post->cover_url) {
+                Storage::delete($post->cover_url);    //se esiste cancella
+            }
+
+            $storageResult = Storage::put("covers", $form_data["postCover"]);    //crea la cartella e dal request prende l'array 'postCover'(il name dell'input)
+
+            $form_data["cover_url"] = $storageResult;          //aggiunge al form l'url dove è stato salvato il file (è un fillable!)
+        }
 
         $post->update($form_data );
         return redirect()->route('admin.posts.index');
@@ -150,10 +159,7 @@ class PostController extends Controller
     }
 
 
-
-    
-
-//---Filtro "i miei post" --------------------------------------------//
+//---Filtro "i miei post" --------//
 
     public function allmine(){
 

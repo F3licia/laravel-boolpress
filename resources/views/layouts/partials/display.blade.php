@@ -3,7 +3,7 @@
         
         @foreach($posts as $post)
             <div class="card mb-auto p-2" style="width: 18rem">
-                <img class="card-img-top" src="https://picsum.photos/200/100" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('storage/' . $post->cover_url) }}"  alt="Card image cap">
                 <div class="card-body">
                     <h2 class="card-title text-uppercase">{{$post->title}} </h2>
                     <h4 class="font-italic">di {{$post->user->name}} 

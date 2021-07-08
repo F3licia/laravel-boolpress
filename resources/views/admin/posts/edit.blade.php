@@ -15,11 +15,12 @@
 
     <div class="container">
     
-        <form action ="{{route('admin.posts.update', $post->id)}}" method="post"> 
+        <form action ="{{route('admin.posts.update', $post->id)}}" method="post" enctype="multipart/form-data"> 
             @csrf
                     
             @method('PATCH')
 
+            <input type="file" name="postCover" >
                     <div class="">
                         <h5>Stai modificando il post di {{$post->user->name}} del {{$post->created_at->format('d M Y') }} ({{$post->created_at->format('H:i') }})</h5>
                     </div>

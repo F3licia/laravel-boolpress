@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                <img src="https://picsum.photos/1100/250" class="figure-img img-fluid rounded"alt="Responsive image">
+                <img src="{{ asset('storage/' . $post->cover_url) }}" class="figure-img img-fluid rounded" >
 
 
                 <h2 class="card-title text-uppercase">{{$post->title}} </h2>
