@@ -31,7 +31,7 @@
 
                     <textarea name="content" class="form-control" aria-label="With textarea" rows="8">{{$post->content}}</textarea>
 
-                        
+                    <div>
                         <select name="category_id" id="">
 
                             <option value="">Seleziona una categoria</option>
@@ -43,7 +43,7 @@
                                 
                             @endforeach
                         </select>
-
+                     </div>
                         @foreach($tags as $tag)
                             <div class="form-check form-check-inline">
                                 
@@ -55,8 +55,10 @@
                             </div>
                         @endforeach
 
-                        <input type="submit" value="salva le modifiche">
-                              
+                         <div> 
+                             <input type="submit" value="salva le modifiche">
+                         </div>
+                               
         </form>
     </div>
 

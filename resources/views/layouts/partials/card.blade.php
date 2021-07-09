@@ -18,10 +18,8 @@
                     @if(count($post->tags) > 0)
                         @foreach($post->tags as $tag)
 
-
-
                         <a href="{{ route('admin.posts.filter', ["tag"=>$tag->id]) }}">
-                            {{ $tag->name }}
+                            {{ '#' . $tag->name }}
                           </a>
 
                         @endforeach
@@ -34,7 +32,6 @@
                 @auth
                     
                 <div class="d-flex align-items-start"> 
-                    <a href="{{ route('admin.posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
                     <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
                     @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
                 @endauth

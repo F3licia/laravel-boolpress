@@ -17,8 +17,10 @@
    
 
         <div class="">
-                <form action ="{{route('admin.posts.store')}}" method="post"> {{----}}
+                <form action ="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data"> {{----}}
                     @csrf {{----}}
+
+                    <input type="file" name="postCover" >
 
                         <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none" placeholder="Inizia con un titolo"></textarea>
                                     
@@ -27,6 +29,7 @@
                         <select name="category_id" id="">
                             <option value="">Seleziona una categoria</option>
 
+                        <div>
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}"> 
                                 {{ $category->name }}
@@ -34,7 +37,8 @@
                             
                             @endforeach
                         </select>
-                        
+                        </div>
+                      
                        @foreach($tags as $tag)
                             <div class="form-check form-check-inline">
                             
@@ -45,9 +49,9 @@
 
                             </div>
                         @endforeach
-
-                    <input type="submit" value="invia">
-
+                    <div>
+                      <input type="submit" value="invia">
+                    </div>
                   
                          
                 </form>

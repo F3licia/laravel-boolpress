@@ -13,7 +13,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {                                      
-        $tags = ['scienza', 'salute', 'sport', 'alimentazione', 'politica', 'newa', 'estero' ,'eventi',
+        $tags = ['scienza', 'salute', 'sport', 'alimentazione', 'politica', 'news', 'estero' ,'eventi',
                   'concerti', 'mostre', 'storia', 'arte', 'pop', 'app', 'social media'];
 
         foreach ($tags as $tag) {

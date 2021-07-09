@@ -69,8 +69,15 @@ class PostController extends Controller
         $newpost->slug = $slug;
         //----------
 
-        if (!key_exists("tags", $form_data )) {
+        if (!key_exists("tags", $form_data )) {   //se non ci sono tag il sync restituisce undefined (err!), quindi si setta array vuoto 
             $form_data ["tags"] = [];
+        }
+
+        if (key_exists("postCover", $form_data)) {
+        $storageResult = Storage::put("covers", $form_data["postCover"]);    
+
+        $newpost->cover_url = $storageResult;  
+
         }
 
         $newpost->save();
