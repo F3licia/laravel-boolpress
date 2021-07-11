@@ -38,7 +38,11 @@
 
            {{--start drop--}}   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> 
 
+
+                            {{--@if (Auth::user()->type_id == 1)--}}
+
                                      <a class="dropdown-item" href="{{ route('admin.home') }}">{{ Auth::user()->name}}</a>
+                                     
 
                                      <a class="dropdown-item" href="{{ route('admin.posts.index') }}"> Tutti i post </a>
 
