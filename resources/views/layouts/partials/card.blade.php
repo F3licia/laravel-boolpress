@@ -18,7 +18,7 @@
                     @if(count($post->tags) > 0)
                         @foreach($post->tags as $tag)
 
-                        <a href="{{ route('admin.posts.filter', ["tag"=>$tag->id]) }}">
+                        <a href="{{ route('user.posts.filter', ["tag"=>$tag->id]) }}">
                             {{ '#' . $tag->name }}
                           </a>
 
@@ -31,7 +31,7 @@
                 
                 @auth       {{--pulsanti azioni solo auth--}}
                 <div class="d-flex align-items-start"> 
-                    <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
+                    <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
                     @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
                 @endauth
                 </div> 

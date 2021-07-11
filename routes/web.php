@@ -27,10 +27,10 @@ Auth::routes();
 Route::get('/posts', 'PostController@index')->name('index');
 Route::get('/posts/{slug}', "PostController@show")->name("posts.show");
 
-Route::prefix('admin')
-    ->namespace('Admin')
+Route::prefix('user')
+    ->namespace('user')
     ->middleware('auth')
-    ->name("admin.")
+    ->name("user.")
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::post('/posts', 'PostController@store')->name('posts.store');

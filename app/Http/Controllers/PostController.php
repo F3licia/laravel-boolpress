@@ -17,7 +17,7 @@ class PostController extends Controller
                 'posts' => Post::all()
             ];
 
-        return view('admin.posts.index', $posts);
+        return view('user.posts.index', $posts);
 
         }else if (!Auth::check()) {
            

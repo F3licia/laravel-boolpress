@@ -15,7 +15,7 @@
 
     <div class="container">
     
-        <form action ="{{route('admin.posts.update', $post->id)}}" method="post" enctype="multipart/form-data"> 
+        <form action ="{{route('user.posts.update', $post->id)}}" method="post" enctype="multipart/form-data"> 
             @csrf
                     
             @method('PATCH')

@@ -16,7 +16,7 @@
                      @if(count($post->tags) > 0)
                      @foreach($post->tags as $tag)
 
-                         <a href="{{ route('admin.posts.filter', ["tag"=>$tag->id]) }}">
+                         <a href="{{ route('user.posts.filter', ["tag"=>$tag->id]) }}">
                              {{ '#' . $tag->name }}
                          </a>
 
@@ -31,8 +31,8 @@
                      {{--pulsanti azioni--}}
 
                     <div class="d-flex justify-content-center align-items-start justify-content-around"> 
-                        <a href="{{ route('admin.posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
-                        <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
+                        <a href="{{ route('user.posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
+                        <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
                     
                     </div> 
                 </div>

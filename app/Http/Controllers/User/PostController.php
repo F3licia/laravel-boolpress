@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 use App\Category;
 use App\Post;
 use App\Tag;
@@ -30,7 +30,7 @@ class PostController extends Controller
             $posts = [
                 'posts' => Post::all()
             ];
-            return view("admin.posts.index", $posts);
+            return view("user.posts.index", $posts);
         }
     }
 
@@ -43,7 +43,7 @@ class PostController extends Controller
                 'tags' => $tags
             ];
 
-        return view('admin.posts.create', $data);
+        return view('user.posts.create', $data);
     }
 
 //----------------------------------------------------STORE
@@ -83,7 +83,7 @@ class PostController extends Controller
         $newpost->save();
         $newpost->tags()->sync($form_data ["tags"]); //errore
     
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('user.posts.index');
     }
 
 //------------------------------------------------------SHOW
@@ -96,7 +96,7 @@ class PostController extends Controller
                 abort(404);
             }
       
-          return view('admin.posts.show', [ 'post' => $post]);
+          return view('user.posts.show', [ 'post' => $post]);
       }
 
 //---------------------------------------------------------EDIT
@@ -111,7 +111,7 @@ class PostController extends Controller
                 'tags' => $tags
             ];
 
-        return view('admin.posts.edit', $data);
+        return view('user.posts.edit', $data);
     }
 
 //----------------------------------------------------------UPDATE
@@ -153,7 +153,7 @@ class PostController extends Controller
         }
 
         $post->update($form_data );
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('user.posts.index');
 
     }
 //----------------------------------------------DESTROY
@@ -162,7 +162,7 @@ class PostController extends Controller
 
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('user.posts.index');
     }
 
 
@@ -175,7 +175,7 @@ class PostController extends Controller
             if (!$posts) {
                 abort(404);
             }
-        return view("admin.posts.index")->with([ "posts"=> $posts]); //provo a passare dei dati extra
+        return view("user.posts.index")->with([ "posts"=> $posts]); //provo a passare dei dati extra
     }
 
 //Filtro "gli ultimi n post"
@@ -187,7 +187,7 @@ class PostController extends Controller
            if (!$posts) {
                abort(404);
             }
-    return view("admin.posts.index")->with(["posts"=> $posts]);
+    return view("user.posts.index")->with(["posts"=> $posts]);
 
    }
    
@@ -200,7 +200,7 @@ class PostController extends Controller
              ->where("post_tag.tag_id", $filters["tag"])->get();
             //mostra solo post dove il tag-id è uguale all'id nel request
             
-        return view("admin.posts.index")->with(["posts"=> $posts]);
+        return view("user.posts.index")->with(["posts"=> $posts]);
         //conflitto col format date, risolto con carbon
     }
 

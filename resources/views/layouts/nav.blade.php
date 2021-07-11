@@ -41,12 +41,12 @@
 
                             {{--@if (Auth::user()->type_id == 1)--}}
 
-                                     <a class="dropdown-item" href="{{ route('admin.home') }}">{{ Auth::user()->name}}</a>
+                                     <a class="dropdown-item" href="{{ route('user.home') }}">{{ Auth::user()->name}}</a>
                                      
 
-                                     <a class="dropdown-item" href="{{ route('admin.posts.index') }}"> Tutti i post </a>
+                                     <a class="dropdown-item" href="{{ route('user.posts.index') }}"> Tutti i post </a>
 
-                                     <a class="dropdown-item" href="{{ route('admin.posts.create') }}"> Pubblica nuovo</a>
+                                     <a class="dropdown-item" href="{{ route('user.posts.create') }}"> Pubblica nuovo</a>
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

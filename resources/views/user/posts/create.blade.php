@@ -17,7 +17,7 @@
    
 
         <div class="">
-                <form action ="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data"> {{----}}
+                <form action ="{{route('user.posts.store')}}" method="post" enctype="multipart/form-data"> {{----}}
                     @csrf {{----}}
 
                     <input type="file" name="postCover" >
