@@ -10,22 +10,16 @@ use App\Post;
 class PostController extends Controller
 {
     function index() {
-        
-        if(Auth::check()) {
 
-            $posts = [
-                'posts' => Post::all()
-            ];
-
-        return view('user.posts.index', $posts);
-
-        }else if (!Auth::check()) {
+        if (!Auth::check()) {    //non iscritto
            
         $posts = Post::orderBy('created_at', 'DESC')->take(3)->get();
-        if (!$posts) {
-            abort(404);
-        }
-        return view('posts.index', ['posts'=> $posts]);
+
+            if (!$posts) {
+                abort(404);
+            }
+
+         return view('posts.index', ['posts'=> $posts]);
         }
     }
 

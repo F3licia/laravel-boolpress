@@ -30,7 +30,18 @@ class PostController extends Controller
             $posts = [
                 'posts' => Post::all()
             ];
-            return view("user.posts.index", $posts);
+
+            if (Auth::check() && Auth::user()->type_id == 1) {
+
+                //route admin
+
+            }else if (Auth::check() && Auth::user()->type_id == 2) {
+
+                return view("user.posts.index", $posts);
+
+            }else{
+                return view("welcome");
+            }
         }
     }
 
