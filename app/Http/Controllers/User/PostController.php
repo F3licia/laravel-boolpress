@@ -81,7 +81,7 @@ class PostController extends Controller
         }
 
         $newpost->save();
-        $newpost->tags()->sync($form_data ["tags"]); //errore
+        $newpost->tags()->sync($form_data ["tags"]); 
     
         return redirect()->route('user.posts.index');
     }

@@ -30,11 +30,15 @@
                 <p>{{ $post->created_at->format('d M Y - H:i') }}</p>
                 
                 @auth       {{--pulsanti azioni solo auth--}}
-                <div class="d-flex align-items-start"> 
-                    <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
-                    @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
+                    <div class="d-flex align-items-start">
+            
+                        @if(Auth::user()->id == $post->user_id)
+                            <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a> 
+                            @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
+                        @endif
+                    </div> 
                 @endauth
-                </div> 
+               
                 </div>
             </div>
         </div>
