@@ -37345,6 +37345,17 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.addEventListener("load", function () {
+  var deleteForms = document.querySelectorAll(".areUsure");
+  deleteForms.forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      if (!confirm("Sei sicuro di voler cancellare questo elemento?")) {
+        event.preventDefault();
+      }
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

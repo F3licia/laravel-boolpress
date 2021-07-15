@@ -61,6 +61,12 @@ class PostController extends Controller
 
     function store(Request $request){
         $form_data = $request->all();  
+
+                    $this->validate($request, [
+                        'title' => 'required',
+                        'content' => 'required',                        
+                    ]);
+
         $newpost = new post();   
         $newpost->fill($form_data);
         $newpost->user_id = $request->user()->id; //la foreign key prende il suo valore qui

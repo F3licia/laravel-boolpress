@@ -10,14 +10,13 @@
     </div>   
 @else 
     <div class="container">
-
-
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="d-flex flex-wrap justify-content-around">
+        
             @foreach($posts as $post)
-                <div class="col">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('storage/' . $post->cover_url) }}"  alt="Card image cap">
-                        <div class="card-body">
+            
+                <div class="card mb-auto p-2" style="width: 18rem">
+                    <img class="card-img-top" src="{{ asset('storage/' . $post->cover_url) }}"  alt="Card image cap">
+                    <div class="card-body">
                         <h2 class="card-title text-uppercase">{{$post->title}} </h2>
                         <h4 class="font-italic">di {{$post->user->name}} 
                             {{ $post->category ? 'in '.$post->category->name : ' ' }} 
@@ -38,19 +37,10 @@
                         {{----}}
 
                         <p>On {{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }} </p>
+                        <h3 class="card-text">{{ substr($post->content, 0, 100)."..."}}</h3>
 
-                        @if(strlen($post->content > 100))
-                           <h5 class="card-text">{{ substr($post->content, 0, 100)."..."}}</h5>
-                        @else
-                           <h5 class="card-text">{{ $post->content }}</h5>
-                        @endif
-
-
-                        
-
-
-                            @auth       
-                            <div class="">       
+                        @auth       
+                            <div class="d-flex justify-content-center align-items-start justify-content-around">       
 
                                 <a href="{{ route('user.posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
                                 
@@ -58,12 +48,10 @@
                                 <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="btn btn-primary"> Edit </a>  
                                 @endif          
                             </div>
-                            @endauth
+                        @endauth
 
-                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
-    </div>
 @endif

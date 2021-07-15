@@ -1,19 +1,16 @@
 @extends('layouts.default')
 @extends('layouts.nav')
 
- 
-@if(count($errors->all())>0) {{--all raccoglie tutti i dati in array!--}}
+@section('content')
+<div class="container">
+
+    
+@if(count($errors->all())>0) 
 
 @foreach($errors->all() as $error)
     <h5>{{$error}}</h5>   
 @endforeach
 @endif
-
-
-
-@section('content')
-<div class="container">
-
    
 
         <div class="">
