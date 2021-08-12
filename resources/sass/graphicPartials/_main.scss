@@ -1,0 +1,37 @@
+.my-btn{
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid $main;
+    color: $main;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 5px;
+
+    &:hover{
+        transition: 0.3s;
+        background-color: $main;
+        text-decoration: none;
+        border: 2px solid $main;
+        color: white;
+        font-weight: 500;
+    }
+}
+
+.bttns-div{
+    display: flex;
+    align-items: center;
+
+    bottom: 0%;
+    height: 50px;
+    
+    & *{
+        align-items: center;
+        margin-right: 10px;
+    }
+}
+
+.article-cont{
+    margin: 10px 20px 10px 20px;
+  }
+

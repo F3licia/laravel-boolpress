@@ -3,6 +3,6 @@
       
         @method('DELETE')
       
-        <input type="submit"class="btn btn-primary"  value="Delete">
+        <input type="submit"class="my-btn"  value="Delete">
 
       </form>
