@@ -1,33 +1,36 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                <img src="{{ asset('storage/' . $post->cover_url) }}" class="figure-img img-fluid rounded" >
+<div class="container article">
 
+            <div class="d-flex justify-content-center">
+                @if(count($post->tags) > 0)
+                @foreach($post->tags as $tag)
 
+                    <a href="{{ route('user.posts.filter', ["tag"=>$tag->id]) }}">
+                        {{ '#' . $tag->name }}
+                    </a>
+
+                    @endforeach
+                @endif
+            </div>
+
+            <div class="d-flex justify-content-center">
                 <h2 class="card-title text-uppercase">{{$post->title}} </h2>
-                <h4 class="font-italic">di  {{$post->user->name}} 
-                   {{ $post->category ? 'in '.$post->category->name : ' ' }} 
-                </h4>
+            </div>
 
-                <p>{{$post->content}}</p>  
-               
-                <p>Tags</p> 
+            <div class="d-flex justify-content-center">
+                <h4 class="font-italic">di  {{$post->user->name}}  </h4>
+            </div>
+
+            <div class="articleImg">
+                <img src="{{ asset('storage/' . $post->cover_url) }}" class="figure-img img-fluid rounded" >
+            </div>
+
+            
+            <h4 class=""> {{ $post->category ? 'in '.$post->category->name : ' ' }} </h4>
+            <h6>{{ $post->created_at->format('d M Y - H:i') }}</h6>
                   
-                    @if(count($post->tags) > 0)
-                        @foreach($post->tags as $tag)
+            <p>{{$post->content}}</p>  
 
-                        <a href="{{ route('user.posts.filter', ["tag"=>$tag->id]) }}">
-                            {{ '#' . $tag->name }}
-                          </a>
-
-                        @endforeach
-                    @else
-                        <em>Nessun tag disponibile</em>
-                    @endif
-
-                <p>{{ $post->created_at->format('d M Y - H:i') }}</p>
+                
                 
                 @auth       {{--pulsanti azioni solo auth--}}
                     <div class="d-flex align-items-start">
@@ -39,8 +42,8 @@
                     </div> 
                 @endauth
                
-                </div>
-            </div>
-        </div>
-    </div>
+             
+     
+
+
 </div>

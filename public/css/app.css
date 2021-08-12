@@ -1,5 +1,38 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.article .articleImg {
+  height: 350px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.article .articleImg img {
+  max-width: 100%;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.article p {
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.article p::first-letter {
+  color: white;
+  background-color: black;
+  border-radius: 2px;
+  font-size: 250%;
+  padding: 6px 3px;
+  margin-right: 6px;
+  float: left;
+}
+
+.article .date {
+  font-size: 17px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

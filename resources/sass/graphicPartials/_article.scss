@@ -1,0 +1,43 @@
+//container bootstrap ok
+//<div class="d-flex justify-content-center">...</div>
+//font-italic
+
+.article{
+
+    .articleImg{
+        height: 350px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 20px;
+        & img{
+            max-width: 100%;
+            height: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+    
+    p {
+        line-height: 1.5;
+        font-size: 20px;
+
+    &::first-letter {
+        color: white;
+        background-color: black;
+        border-radius: 2px;
+        font-size: 250%;
+        padding: 6px 3px;
+        margin-right: 6px;
+        float: left;
+      }
+
+    }
+
+    .date{
+        font-size: 17px;
+    }
+    
+}
+
+
+

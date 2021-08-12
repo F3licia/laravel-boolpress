@@ -3,11 +3,11 @@
 
   <form @submit.prevent="filterData">
       <text-input
-        label="titolo"
+        label="Ricerca per titolo"
         v-model="filters.title"
       ></text-input>
       <text-input
-        label="contenuto"
+        label="Ricerca per contenuto"
         v-model="filters.content"
       ></text-input>
       <button type="submit">Filtra</button>
@@ -60,7 +60,7 @@ export default {
                 })
                 .catch(er => {
                     console.error(er);
-                    alert("Errore in fase di filtraggio dati.");
+                    alert("Si è verificato un errore :(");
                 });
         },
 
@@ -75,7 +75,7 @@ export default {
                   
             })
             .catch(er => {
-                alert("Impossibile recuperare l'elenco dei post.");
+                alert("Si è verificato un errore :(");
             });
     }
 }

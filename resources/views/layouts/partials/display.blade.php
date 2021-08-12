@@ -16,7 +16,8 @@
             @foreach($posts as $post)
                 <div class="col">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('storage/' . $post->cover_url) }}"  alt="Card image cap">
+                        <img class="card-img-top" src="{{ $post->cover_url ? asset('storage/' . $post->cover_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png' }}"  alt="Card image cap">
+                   
                         <div class="card-body">
                         <h2 class="card-title text-uppercase">{{$post->title}} </h2>
                         <h4 class="font-italic">di {{$post->user->name}} 

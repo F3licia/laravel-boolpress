@@ -2108,7 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.filteredList = resp.data.results;
       })["catch"](function (er) {
         console.error(er);
-        alert("Errore in fase di filtraggio dati.");
+        alert("Si è verificato un errore :(");
       });
     }
   },
@@ -2120,7 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
       _this2.filteredList = resp.data.results;
       console.log(_this2.allPostsList);
     })["catch"](function (er) {
-      alert("Impossibile recuperare l'elenco dei post.");
+      alert("Si è verificato un errore :(");
     });
   }
 });
@@ -37963,7 +37963,7 @@ var render = function() {
         },
         [
           _c("text-input", {
-            attrs: { label: "titolo" },
+            attrs: { label: "Ricerca per titolo" },
             model: {
               value: _vm.filters.title,
               callback: function($$v) {
@@ -37974,7 +37974,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("text-input", {
-            attrs: { label: "contenuto" },
+            attrs: { label: "Ricerca per contenuto" },
             model: {
               value: _vm.filters.content,
               callback: function($$v) {
