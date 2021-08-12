@@ -39,7 +39,7 @@
 
                         <p>On {{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }} </p>
 
-                        @if(strlen($post->content > 100))
+                        @if(strlen($post->content) > 100)
                            <h5 class="card-text">{{ substr($post->content, 0, 100)."..."}}</h5>
                         @else
                            <h5 class="card-text">{{ $post->content }}</h5>

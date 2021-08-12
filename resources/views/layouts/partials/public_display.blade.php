@@ -16,6 +16,7 @@
                     <div class="d-flex justify-content-center align-items-start justify-content-around"> 
                         <a href="{{ route('posts.show', $post->slug )}}" class="btn btn-primary"> More </a>
                     </div>
+                </div>
             </div>
         @endforeach
     </div>

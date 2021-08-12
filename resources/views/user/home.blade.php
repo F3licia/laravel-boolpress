@@ -17,9 +17,10 @@
                   
                    <h1> {{ Auth::user()->name}}</h1>
                    <h4>Status: user </h4>
-                   <h4><a href="{{ route('user.posts.latest')}}" >Le ultime pubblicazioni</a></h4>                
-                   <h4><a href="{{ route('user.posts.mine')}}" >Guarda tutti i tuoi post</a></h4>
-
+                 
+                   <h5><a href="{{ route('user.posts.search')}}" >Fa una ricerca</a></h5>                
+                   <h5><a href="{{ route('user.posts.mine')}}" >Guarda tutti i tuoi post</a></h5>
+                
                 </div>
             </div>
         </div>

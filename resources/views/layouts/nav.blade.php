@@ -1,11 +1,37 @@
      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'my first') }}
                 </a>
              
-{{----}}
-                {{Request::route()->getName()}}
+               {{-- {{Request::route()->getName()}}   nome intestazione pagina--}} 
+
+                @if( Request::route()->getName() == "user.home")
+                   Home sweet home!
+
+                @elseif( Request::route()->getName() == "user.posts.index")
+                   Così tanto da leggere...
+
+                @elseif( Request::route()->getName() == "user.posts.mine")
+                    Guarda,ci sono tutti i tuoi post!
+        
+                @elseif( Request::route()->getName() == "user.posts.create")
+                    Era una notte buia e tempestosa...
+
+                @elseif( Request::route()->getName() == "user.posts.edit")
+                    È per questo che c'è una gomma per ogni matita...
+
+                @elseif( Request::route()->getName() == "user.posts.show")
+                    Mi piace l'odore di un buon articolo al mattino...
+
+                @elseif( Request::route()->getName() == "user.posts.search")
+                    Io vi troverò... e vi leggerò!
+
+                @elseif( Request::route()->getName() == "user.posts.filter")
+                    Ricerca per tag
+                @else
+                    {{Request::route()->getName()}}
+                @endif
 
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

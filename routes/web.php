@@ -37,6 +37,8 @@ Route::prefix('user')
         Route::get('/posts', 'PostController@index')->name('posts.index');
         Route::get('/posts/create','PostController@create')->name('posts.create');
 
+        Route::get('/posts/search', 'PostController@nullo')->name('posts.search');
+
         Route::get("/posts/filter", "PostController@filter")->name('posts.filter');//non hanno view, tornano a index con nuovi dati passati dal 'with->'
         Route::get('/posts/mine', "PostController@allmine")->name("posts.mine"); //
         Route::get('/posts/latest', "PostController@lastposts")->name("posts.latest");//
@@ -45,6 +47,7 @@ Route::prefix('user')
         Route::match(["PUT", "PATCH"], '/posts/{post}', 'PostController@update')->name('posts.update');
         Route::delete('/posts/{Id}', 'PostController@destroy')->name('posts.destroy');
         Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');
+        
        
         
     });

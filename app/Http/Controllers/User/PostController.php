@@ -86,7 +86,7 @@ class PostController extends Controller
         $newpost->slug = $slug;
         //----------
 
-        if (!key_exists("tags", $form_data )) {   //se non ci sono tag il sync restituisce undefined (err!), quindi si setta array vuoto 
+        if (!key_exists("tags", $form_data )) {   
             $form_data ["tags"] = [];
         }
 
@@ -221,6 +221,10 @@ class PostController extends Controller
         //conflitto col format date, risolto con carbon
     }
 
+    public function nullo() {
+   
+        return view("user.posts.search");
+    }
 
 }
 

@@ -13,7 +13,7 @@
 
                 <p>{{$post->content}}</p>  
                
-                <p>Tags</p> {{--!!--}}
+                <p>Tags</p> 
                   
                     @if(count($post->tags) > 0)
                         @foreach($post->tags as $tag)

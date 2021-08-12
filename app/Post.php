@@ -11,6 +11,10 @@ class Post extends Model {
     "slug", "title", "content", "user_id", "category_id", "cover_url"
 ];
 
+protected $hidden = [
+  'user_id'
+];
+
   public function user() {
     return $this->belongsTo("App\User");
   }

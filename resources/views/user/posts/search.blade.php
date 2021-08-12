@@ -5,6 +5,8 @@
 
 @section('content')
 
-     @include('layouts.partials.display', [ "posts" => $posts, "resource" => "posts" ])
+<div id="app">
+    <post-index> </post-index>
+ </div>
 
 @endsection
