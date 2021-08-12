@@ -1,6 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;
 
+1&display=swap);@import url(https://fonts.googleapis.com/css2?family=Questrial&display=swap);@charset "UTF-8";
 .my-btn {
+  font-family: "Questrial", sans-serif;
   text-align: center;
   background-color: transparent;
   border: 2px solid #627a77;
@@ -36,6 +38,13 @@
   margin: 10px 20px 10px 20px;
 }
 
+h4,
+h5,
+h6,
+p {
+  font-family: "Questrial", sans-serif;
+}
+
 .article {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -43,6 +52,7 @@
   margin: 0%;
   position: relative;
   background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
 }
 
 .article .articleImg {
@@ -71,7 +81,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: space-around;
+  justify-content: center;
   align-items: baseline;
 }
 
@@ -80,10 +90,12 @@
   color: white;
   padding: 3px 6px;
   border-radius: 3px;
+  margin: 0px 5px 15px 0px;
   text-transform: uppercase;
 }
 
 .article p {
+  font-family: "Questrial", sans-serif;
   min-height: 100px;
   border-bottom: 10px;
   line-height: 1.5;
@@ -102,6 +114,7 @@
 }
 
 .article .title {
+  font-family: "DM Serif Display", serif;
   color: #627a77;
   font-size: 28px;
   text-transform: uppercase;
@@ -133,13 +146,14 @@
   margin: 10px 10px;
   position: relative;
   background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
 }
 
 .display .img-cont {
   width: 100%;
   height: 300px;
   overflow: hidden;
-  border: 1px solid hotpink;
+  border: 1px solid rgba(85, 85, 85, 0.404);
 }
 
 .display .img-cont img {
@@ -149,6 +163,7 @@
 }
 
 .display .title {
+  font-family: "DM Serif Display", serif;
   color: #627a77;
   margin: 13px 0px;
   font-size: 22px;
@@ -170,6 +185,12 @@
 
 .display .card-p {
   height: 80px;
+}
+
+.display p,
+.display h5,
+.display h6 {
+  color: #474c46;
 }
 
 /*!

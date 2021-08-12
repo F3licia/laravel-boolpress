@@ -38,7 +38,7 @@
 
                     <h2 class="title">{{$post->title}} </h2>
                     <div class="d-flex justify-content-between info" >
-                        <p class="font-italic">di {{$post->user->name}} 
+                        <p>di {{$post->user->name}} 
                             {{ $post->category ? 'in '.$post->category->name : ' ' }} 
                         </p>
 

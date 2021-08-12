@@ -9,13 +9,14 @@
         margin: 10px 10px;
         position: relative;
         background-color: white;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
     }
 
     .img-cont{
         width: 100%;
         height: 300px;
         overflow: hidden;
-        border: 1px solid hotpink;
+        border: 1px solid rgba(85, 85, 85, 0.404);
         & img{
             width: 100%;
             height: auto;
@@ -24,6 +25,7 @@
     }
 
     .title{
+        font-family: 'DM Serif Display', serif;
         color: $main;
         margin: 13px 0px;
         font-size: 22px;
@@ -45,6 +47,10 @@
 
     .card-p{
         height: 80px;
+    }
+
+    p, h5, h6{
+        color: $mytext;
     }
 
 }
