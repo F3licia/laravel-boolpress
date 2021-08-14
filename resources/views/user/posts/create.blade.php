@@ -13,41 +13,57 @@
 @endif
    
 
-        <div class="">
+        <div class="myform">
                 <form action ="{{route('user.posts.store')}}" method="post" enctype="multipart/form-data"> {{----}}
                     @csrf {{----}}
 
-                    <input type="file" name="postCover" >
+                    <div class="input-div">
+                        <label class="my-file-upload">
+                            <input type="file" name="postCover">
+                            Carica un'immagine
+                        </label>
+                    </div>
 
-                        <textarea name="title" class="form-control" aria-label="With textarea" rows="1" style="resize: none" placeholder="Inizia con un titolo"></textarea>
+
+                        <textarea name="title" class="my-form-control" aria-label="With textarea" rows="1" style="resize: none" placeholder="Inizia con un titolo"></textarea>
                                     
-                        <textarea name="content" class="form-control" aria-label="With textarea" rows="8" placeholder="Di cosa vuoi parlare?"></textarea>
+                        <textarea name="content" class="my-form-control" aria-label="With textarea" rows="8" placeholder="Di cosa vuoi parlare?"></textarea>
 
-                        <select name="category_id" id="">
-                            <option value="">Seleziona una categoria</option>
+                       
 
-                        <div>
-                            @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"> 
-                                {{ $category->name }}
-                            </option>
+
+                    <div class="more-info-div">
+
+                        <div class="categories-div">
+                            <label>Seleziona una categoria</label>
+                            <select name="category_id" multiple size= "{{count($categories)}}" id="myCategories">
                             
-                            @endforeach
-                        </select>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"> 
+                                    {{ $category->name }}
+                                </option>
+                                
+                                @endforeach
+                            </select>
                         </div>
-                      
-                       @foreach($tags as $tag)
-                            <div class="form-check form-check-inline">
+                        
+                        <div class="tags-div">
+                            @foreach($tags as $tag)
+                            <div class="">
                             
-                                <label class="form-check-label">
+                                <label class="tag-select">
                                     {{$tag->name}}
-                                    <input name="tags[]" class="form-check-input" type="checkbox" value="{{$tag->id}}" >              
+                                    <input name="tags[]" type="checkbox" value="{{$tag->id}}" >              
                                 </label> 
 
                             </div>
-                        @endforeach
-                    <div>
-                      <input type="submit" value="invia">
+                             @endforeach
+                        </div>
+                    
+                    </div>
+
+                    <div class="input-div">
+                      <input type="submit" value="Pubblica" class="send">
                     </div>
                   
                          

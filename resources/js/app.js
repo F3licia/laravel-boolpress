@@ -32,3 +32,11 @@ Vue.component('text-input', require('./components/formInputs/TextInput.vue').def
 const app = new Vue({
     el: '#app',
 });
+
+
+//-------------------------//
+
+function myFunction() {
+    var element = document.getElementById("myToggle");
+    element.classList.toggle("mystyle");
+}

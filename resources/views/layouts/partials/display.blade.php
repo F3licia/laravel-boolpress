@@ -21,7 +21,7 @@
                         @if(count($post->tags) > 0)
                         @foreach($post->tags as $tag)
                 
-                            <a href="{{ route('user.posts.filter', ["tag"=>$tag->id]) }}">
+                            <a class="tag" href="{{ route('user.posts.filter', ["tag"=>$tag->id]) }}">
                                 {{ '#' . $tag->name }}
                             </a>
                 
@@ -37,19 +37,20 @@
                 <div class="article-cont">
 
                     <h2 class="title">{{$post->title}} </h2>
-                    <div class="d-flex justify-content-between info" >
-                        <p>di {{$post->user->name}} 
-                            {{ $post->category ? 'in '.$post->category->name : ' ' }} 
-                        </p>
 
-                        <p>On {{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }} </p>
+                    <div class="d-flex justify-content-between info" >
+                        <h5>di {{$post->user->name}} 
+                            {{ $post->category ? 'in '.$post->category->name : ' ' }} 
+                        </h5>
+
+                        <h5>On {{ Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }} </h5>
                     </div>
 
                     <div class="card-p">
                         @if(strlen($post->content) > 170)
-                           <h5>{{ substr($post->content, 0, 170)."..."}}</h5>
+                           <p>{{ substr($post->content, 0, 170)."..."}}</p>
                         @else
-                           <h5>{{ $post->content }}</h5>
+                           <p>{{ $post->content }}</p>
                         @endif
                     </div>
 

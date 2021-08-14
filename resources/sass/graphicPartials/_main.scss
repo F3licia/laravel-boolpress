@@ -39,3 +39,17 @@
   h4, h5, h6, p{
     font-family: 'Questrial', sans-serif;
 }
+
+a.tag{
+    background-color: $main;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    margin: 0px 5px 15px 0px;
+    text-transform: uppercase;
+       &:hover{
+           color: white;
+           text-decoration: underline;
+       }
+}
+
