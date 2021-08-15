@@ -1,6 +1,7 @@
 
-.myform *{
+.myform {
   font-family: 'Questrial', sans-serif;
+  margin-top: 30px;
 }
 
 
@@ -15,11 +16,10 @@
       color: #495057;
       background-color: #fff;
       background-clip: padding-box;
-
       margin-top: 15px;
-    // border: 1px solid #ced4da;
-    // border-radius: 0.25rem;
-    //transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      border: 1px solid $main;
+      border-radius: 3px;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
       &:nth-of-type(2){
         height: 400px;
@@ -29,9 +29,9 @@
   .my-form-control:focus {
       color: #495057;
       background-color: #fff;
-      //border-color: $sec;
+      border-color: white;
       outline: 0;
-      //box-shadow: 0 0 0 0.2rem rgb(52 144 220 / 25%);
+      box-shadow: 0px 0px 10px $main;
   }
 
 
@@ -40,7 +40,9 @@
     height: 50px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 0, 0.384);
+    & .fa-image{
+       font-size: 30px;
+    }
   }
 
   input[type="file"] {
@@ -67,20 +69,21 @@
     align-self: flex-end;
     text-align: center;
     background-color: $main;
-    border: 2px solid white;
+    border: 3px solid white;
     color: white;
     font-size: 16px;
     font-weight: 500;
     padding: 8px 12px;
     border-radius: 5px;
     letter-spacing: 1px;
+    margin-right: 20px;
 
     &:hover{
       letter-spacing: 3px;
         transition: 0.4s;
         background-color: $main;
         text-decoration: none;
-        border: 2px solid $main;
+        border: 3px solid white;
         color: white;
         font-weight: 550;
     }
@@ -88,50 +91,82 @@
 
   .more-info-div{
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
-    &>*{
-      border:1px solid palevioletred;
-    }
   }
 
-  .tags-div{
-   height: 150px;
-   display: flex;
-   flex-wrap: wrap;
+.my-label{
+  width: 100%;
+  background-color: $main;
+  color:white;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  height: 28px;
+  border-radius: 5px;
+}
+
+.cat-div{
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+ }
+
+#myCategories{
+  height: 148px;
+  width: 110px;
+  border: 2px solid $main;
+   
+ }::-webkit-scrollbar{
+    display: none;
   }
 
+ 
+ #myCategories option{
+    padding-top: 5px ;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    font-size: 18px;
+    color: $mytext
+ }
+ 
+
+ .tags-div{
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+ }
 
   .tag-select{
+    display: flex;
+    align-items: center;
+    min-width: 80px;
     border: 2px solid $main;
     border-radius: 5px;
     color: $main;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
     box-shadow: 3px 4px $main;
-    padding: 4px 9px;
+    padding: 4px 13px 4px 9px;
     margin-right: 5px;
     cursor: pointer;
 
     &:active {
-      margin: 5px 2px 0 3px;
+      margin: 5px 6px 0 3px;
       box-shadow: 1px 1px $main;
     }
   }
 
+  input[type="checkbox"] {
+      opacity: 0%;
+      
+      &:checked{
+        opacity: 100%;
+        margin-right: 4px;
+      }
+  }
 
-#myCategories{
-  height: 150px;
-  width: 110px;
-  & *{
-    margin: 5px 0px 5px 5px;
-  }     
- }::-webkit-scrollbar {
-  display: none;
-}
- 
- #myCategories option{
-  margin: 7px 0px 5px 5px;
-  font-size: 18px;
-
- }
- 
+  

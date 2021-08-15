@@ -20,7 +20,7 @@
                     <div class="input-div">
                         <label class="my-file-upload">
                             <input type="file" name="postCover">
-                            Carica un'immagine
+                            <i class="fas fa-image"></i>
                         </label>
                     </div>
 
@@ -34,8 +34,8 @@
 
                     <div class="more-info-div">
 
-                        <div class="categories-div">
-                            <label>Seleziona una categoria</label>
+                        <div class="cat-div">
+                            <div class="my-label">Scegli una categoria</div>
                             <select name="category_id" multiple size= "{{count($categories)}}" id="myCategories">
                             
                                 @foreach ($categories as $category)
@@ -48,12 +48,13 @@
                         </div>
                         
                         <div class="tags-div">
+                        <div class="my-label">Tags</div>
                             @foreach($tags as $tag)
                             <div class="">
                             
                                 <label class="tag-select">
-                                    {{$tag->name}}
-                                    <input name="tags[]" type="checkbox" value="{{$tag->id}}" >              
+                                    <input name="tags[]" type="checkbox" value="{{$tag->id}}">
+                                    {{$tag->name}}           
                                 </label> 
 
                             </div>
