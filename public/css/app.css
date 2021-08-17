@@ -4639,10 +4639,6 @@ readers do not read off random characters that represent icons */
   margin-right: 10px;
 }
 
-.article-cont {
-  margin: 10px 20px 10px 20px;
-}
-
 h4,
 h5,
 h6,
@@ -4655,7 +4651,7 @@ a.tag {
   color: white;
   padding: 3px 6px;
   border-radius: 3px;
-  margin: 0px 5px 15px 0px;
+  margin: 0px 5px 5px 0px;
   text-transform: uppercase;
 }
 
@@ -4690,6 +4686,10 @@ a.tag:hover {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.article .article-cont {
+  margin: 10px 30px 10px 30px;
 }
 
 .article .mg-btt {
@@ -4784,9 +4784,12 @@ a.tag:hover {
 }
 
 .display .tag-div {
-  margin: 10px 0px;
-  text-align: center;
-  height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
 }
 
 .display .card-p {
@@ -4814,7 +4817,7 @@ a.tag:hover {
   width: 100%;
   height: calc(1.6em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.6;
   color: #495057;

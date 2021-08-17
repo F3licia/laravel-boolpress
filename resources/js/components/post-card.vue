@@ -1,30 +1,33 @@
 <template>
- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                  <img
-                    :src="coverUrl" class="img-fluid rounded-start" alt="..." style="max-height:150px;width: 100%; object-fit: cover"/>
-                    <h2 class="card-title text-uppercase">{{ title }} </h2>
-                     <h4 class="font-italic">di  {{ username }} </h4>
+            <div class="my-card">
+
+                <div class="tag-div">
+                    <a class="tag" v-for="tag in tags" :key="tag.id">
+                        {{'#' + tag.name }}
+                    </a>
+                </div>
+            
+                <div class="img-cont">
+                    <img
+                    :src="coverUrl" alt="...">
+                </div>
+
+                <div class="article-cont">
+
+                    <h2 class="title">{{ title }}</h2>
+                     
+                    <div class="d-flex justify-content-between info">
+                       <h4 class="font-italic">di {{ username }} {{ categoria }} </h4>
+                    </div>
 
                     <h5 class="card-text" v-html="contentText"></h5> 
-                
-                     <span 
-                        v-for="tag in tags" :key="tag.id">
-                        {{'#' + tag.name }}
-                    </span>
 
                     <div>
-                      <a :href="link">Apri...</a>
+                      <a :href="link" class="my-btn">Apri...</a>
                     </div>
+                    
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
 </template>
 
 <script>
@@ -35,9 +38,10 @@ export default {
         title: String,
         content: String,
         updatedAt: String,
-        tags: Array,
         username: String,
-        user: Object,
+        categoria : String,
+        tags: Array,
+        //user: Object,
         link: String
     },
     computed: {

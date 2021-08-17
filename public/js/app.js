@@ -2009,6 +2009,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
   props: {
@@ -2016,9 +2019,10 @@ __webpack_require__.r(__webpack_exports__);
     title: String,
     content: String,
     updatedAt: String,
-    tags: Array,
     username: String,
-    user: Object,
+    categoria: String,
+    tags: Array,
+    //user: Object,
     link: String
   },
   computed: {
@@ -2047,6 +2051,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _formInputs_TextInput_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formInputs/TextInput.vue */ "./resources/js/components/formInputs/TextInput.vue");
 /* harmony import */ var _post_card_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post-card.vue */ "./resources/js/components/post-card.vue");
+//
+//
 //
 //
 //
@@ -37874,53 +37880,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("img", {
-                staticClass: "img-fluid rounded-start",
-                staticStyle: {
-                  "max-height": "150px",
-                  width: "100%",
-                  "object-fit": "cover"
-                },
-                attrs: { src: _vm.coverUrl, alt: "..." }
-              }),
-              _vm._v(" "),
-              _c("h2", { staticClass: "card-title text-uppercase" }, [
-                _vm._v(_vm._s(_vm.title) + " ")
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "font-italic" }, [
-                _vm._v("di  " + _vm._s(_vm.username) + " ")
-              ]),
-              _vm._v(" "),
-              _c("h5", {
-                staticClass: "card-text",
-                domProps: { innerHTML: _vm._s(_vm.contentText) }
-              }),
-              _vm._v(" "),
-              _vm._l(_vm.tags, function(tag) {
-                return _c("span", { key: tag.id }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s("#" + tag.name) +
-                      "\n                    "
-                  )
-                ])
-              }),
-              _vm._v(" "),
-              _c("div", [
-                _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri...")])
-              ])
-            ],
-            2
+  return _c("div", { staticClass: "my-card" }, [
+    _c(
+      "div",
+      { staticClass: "tag-div" },
+      _vm._l(_vm.tags, function(tag) {
+        return _c("a", { key: tag.id, staticClass: "tag" }, [
+          _vm._v("\n            " + _vm._s("#" + tag.name) + "\n        ")
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "img-cont" }, [
+      _c("img", { attrs: { src: _vm.coverUrl, alt: "..." } })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "article-cont" }, [
+      _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex justify-content-between info" }, [
+        _c("h4", { staticClass: "font-italic" }, [
+          _vm._v(
+            "di " + _vm._s(_vm.username) + " " + _vm._s(_vm.categoria) + " "
           )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("h5", {
+        staticClass: "card-text",
+        domProps: { innerHTML: _vm._s(_vm.contentText) }
+      }),
+      _vm._v(" "),
+      _c("div", [
+        _c("a", { staticClass: "my-btn", attrs: { href: _vm.link } }, [
+          _vm._v("Apri...")
         ])
       ])
     ])
@@ -37948,66 +37942,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.filterData.apply(null, arguments)
-            }
+  return _c("div", {}, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.filterData.apply(null, arguments)
           }
-        },
-        [
-          _c("text-input", {
-            attrs: { label: "Ricerca per titolo" },
-            model: {
-              value: _vm.filters.title,
-              callback: function($$v) {
-                _vm.$set(_vm.filters, "title", $$v)
-              },
-              expression: "filters.title"
-            }
-          }),
-          _vm._v(" "),
-          _c("text-input", {
-            attrs: { label: "Ricerca per contenuto" },
-            model: {
-              value: _vm.filters.content,
-              callback: function($$v) {
-                _vm.$set(_vm.filters, "content", $$v)
-              },
-              expression: "filters.content"
-            }
-          }),
-          _vm._v(" "),
-          _c("button", { attrs: { type: "submit" } }, [_vm._v("Filtra")]),
-          _vm._v(" "),
-          _c("button", { attrs: { type: "reset" } }, [_vm._v("Annulla")])
-        ],
-        1
-      ),
-      _vm._v(" "),
+        }
+      },
+      [
+        _c("text-input", {
+          attrs: { label: "Ricerca per titolo" },
+          model: {
+            value: _vm.filters.title,
+            callback: function($$v) {
+              _vm.$set(_vm.filters, "title", $$v)
+            },
+            expression: "filters.title"
+          }
+        }),
+        _vm._v(" "),
+        _c("text-input", {
+          attrs: { label: "Ricerca per contenuto" },
+          model: {
+            value: _vm.filters.content,
+            callback: function($$v) {
+              _vm.$set(_vm.filters, "content", $$v)
+            },
+            expression: "filters.content"
+          }
+        }),
+        _vm._v(" "),
+        _c("button", { attrs: { type: "submit" } }, [_vm._v("Filtra")]),
+        _vm._v(" "),
+        _c("button", { attrs: { type: "reset" } }, [_vm._v("Annulla")])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "display" },
       _vm._l(_vm.filteredList, function(post) {
         return _c("post-card", {
           key: post.id,
           attrs: {
             "cover-url": post.cover_url,
             title: post.title,
-            username: post.user.name,
+            username: post.username,
+            categoria: post.categoria,
             "updated-at": post.updated_at,
             content: post.content,
             tags: post.tags,
             link: post.link
           }
         })
-      })
-    ],
-    2
-  )
+      }),
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

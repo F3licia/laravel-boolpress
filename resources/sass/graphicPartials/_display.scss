@@ -35,9 +35,12 @@
     }
 
     .tag-div{
-        margin: 10px 0px;
-        text-align: center;
-        height: 44px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
     }
 
     .card-p{

@@ -1,33 +1,35 @@
 <template>
-<div>
+<div class="">
 
-  <form @submit.prevent="filterData">
-      <text-input
-        label="Ricerca per titolo"
-        v-model="filters.title"
-      ></text-input>
-      <text-input
-        label="Ricerca per contenuto"
-        v-model="filters.content"
-      ></text-input>
-      <button type="submit">Filtra</button>
-      <button type="reset">Annulla</button>
+      <form @submit.prevent="filterData">
+          <text-input
+            label="Ricerca per titolo"
+            v-model="filters.title"
+          ></text-input>
+          <text-input
+            label="Ricerca per contenuto"
+            v-model="filters.content"
+          ></text-input>
+          <button type="submit">Filtra</button>
+          <button type="reset">Annulla</button>
 
-    
-  </form>
+        
+      </form>
+      <div class="display">
+          <post-card v-for="post in filteredList" 
+            :key="post.id"
+            :cover-url="post.cover_url"
+            :title="post.title"
+            :username="post.username" 
+            :categoria="post.categoria"
+            :updated-at="post.updated_at"
+            :content="post.content"
+            :tags="post.tags"
+            :link="post.link"
 
-    <post-card v-for="post in filteredList" 
-       :key="post.id"
-       :cover-url="post.cover_url"
-       :title="post.title"
-       :username="post.user.name" 
-       :updated-at="post.updated_at"
-       :content="post.content"
-       :tags="post.tags"
-       :link="post.link"
-
-    ></post-card>
-  </div>
+          ></post-card>
+      </div>
+</div>
 </template>
 
 

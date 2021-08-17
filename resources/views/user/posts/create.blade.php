@@ -29,8 +29,6 @@
                                     
                         <textarea name="content" class="my-form-control" aria-label="With textarea" rows="8" placeholder="Di cosa vuoi parlare?"></textarea>
 
-                       
-
 
                     <div class="more-info-div">
 
@@ -50,7 +48,7 @@
                         <div class="tags-div">
                         <div class="my-label">Tags</div>
                             @foreach($tags as $tag)
-                            <div class="">
+                            <div>
                             
                                 <label class="tag-select">
                                     <input name="tags[]" type="checkbox" value="{{$tag->id}}">

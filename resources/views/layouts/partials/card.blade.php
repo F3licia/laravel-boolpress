@@ -47,8 +47,11 @@
                     <div class="d-flex align-items-start">
             
                         @if(Auth::user()->id == $post->user_id)
+
+                            @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ]) 
+
                             <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="my-btn"> Edit </a> 
-                            @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ])
+                    
                         @endif
 
                     </div> 

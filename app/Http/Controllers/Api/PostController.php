@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::with('user')->with('category')->with('tags')->get();
+
+        $posts = Post::with('user')->with("category")->with("tags")->orderBy("created_at", "DESC")->get();
 
     foreach($posts as $post){
-        $post->cover_url =  $post->cover_url ? asset('storage/'. $post->cover_url) : "https://www.linga.org/site/photos/Largnewsimages/image-not-found.png";
+        $post->categoria = $post->category ? 'in '. $post->category->name : '';
+        $post->username = $post->user->name;
+        $post->cover_url = $post->cover_url ? asset('storage/'. $post->cover_url) : "https://www.linga.org/site/photos/Largnewsimages/image-not-found.png";
         $post->link = route('posts.show', ["slug" => $post->slug] );
     }
 

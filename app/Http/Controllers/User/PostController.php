@@ -121,11 +121,13 @@ class PostController extends Controller
     public function edit(Post $post) {
 
         $categories = Category::all();
+        //$tags = $post->Tags()->get();
         $tags = Tag::all();
+
             $data = [
                 'post' => $post,
                 'categories' => $categories,
-                'tags' => $tags
+                'tags' => $tags,
             ];
 
         return view('user.posts.edit', $data);
