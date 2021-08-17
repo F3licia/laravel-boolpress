@@ -10,11 +10,14 @@ class PostController extends Controller
 {
     public function index(){
 
-        $posts = Post::with('user')->with("category")->with("tags")->orderBy("created_at", "DESC")->get();
+    $posts =        $posts = Post::with('user')->with("category")->with("tags")->orderBy("created_at", "DESC")->get();
 
     foreach($posts as $post){
         $post->categoria = $post->category ? 'in '. $post->category->name : '';
         $post->username = $post->user->name;
+        $post->dateString = $post->updated_at ? 'updated ' . $post->updated_at->format('Y-m-d') : $post->created_at->format('Y-m-d');
+        
+
         $post->cover_url = $post->cover_url ? asset('storage/'. $post->cover_url) : "https://www.linga.org/site/photos/Largnewsimages/image-not-found.png";
         $post->link = route('posts.show', ["slug" => $post->slug] );
     }
@@ -28,38 +31,37 @@ class PostController extends Controller
 
 ///////////////////////
 
-    public function filter(Request $request) {
-        $filters = $request->only(["title", "content"]);
-    
-        $result = Post::with(["category", "tags", "user"]);
-    
-        foreach ($filters as $filter => $value) {
-            $result->where($filter, "LIKE", "%$value%");
-        }
-    
-        $posts = $result->get();
-    
-        foreach ($posts as $post) {
-          $post->cover_url = $post->cover_url ? asset('storage/' . $post->cover_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
-          $post->link = route("posts.show", ["slug" => $post->slug]);
-    
-          if (strlen($post->content) > 80) {
-            $post->content = substr($post->content, 0, 80) . "...";
-          }
-        }
-    
-        return response()->json([
-          "success" => true,
-          "filters" => $filters,
-          "query" => $result->getQuery()->toSql(),
-          "results" => $posts
-        ]);
-      }
-    
+public function filter(Request $request) {
+  $filters = $request->only(["title", "content"]);
+
+  $result = Post::with(["category", "tags", "user"]);
+
+  foreach ($filters as $filter => $value) {
+      $result->where($filter, "LIKE", "%$value%");
+  }
+
+  $posts = $result->get();
+
+  foreach ($posts as $post) {
+    $post->cover_url = $post->cover_url ? asset('storage/' . $post->cover_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
+    $post->link = route("posts.show", ["slug" => $post->slug]);
+
+    if (strlen($post->content) > 80) {
+      $post->content = substr($post->content, 0, 80) . "...";
+    }
+  }
+
+  return response()->json([
+    "success" => true,
+    "filters" => $filters,
+    "query" => $result->getQuery()->toSql(),
+    "results" => $posts
+  ]);
+}
+
 
 
 
 
 
 }
-

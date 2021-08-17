@@ -17,13 +17,17 @@
                     <h2 class="title">{{ title }}</h2>
                      
                     <div class="d-flex justify-content-between info">
-                       <h4 class="font-italic">di {{ username }} {{ categoria }} </h4>
+                       <h5 class="font-italic">di {{ username }} {{ categoria }} </h5>
+                       <h5>{{ dateString }}</h5>
+
+                    </div>
+ 
+                    <div class="card-p">
+                        <h5 class="card-text" v-html="contentText"></h5> 
                     </div>
 
-                    <h5 class="card-text" v-html="contentText"></h5> 
-
-                    <div>
-                      <a :href="link" class="my-btn">Apri...</a>
+                    <div class="bttns-div">
+                        <a :href="link" class="my-btn">Apri...</a>
                     </div>
                     
                 </div>
@@ -37,11 +41,10 @@ export default {
         coverUrl: String,
         title: String,
         content: String,
-        updatedAt: String,
+        dateString: String,
         username: String,
         categoria : String,
         tags: Array,
-        //user: Object,
         link: String
     },
     computed: {
@@ -49,7 +52,7 @@ export default {
         contentText() {
             const maxLength = 80;
             if (this.content.length > maxLength) {
-                return this.content.slice(0, 80) + "...";
+                return this.content.slice(0, 170) + "...";
             }
             return this.content;
         },

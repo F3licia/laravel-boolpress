@@ -2012,17 +2012,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
   props: {
     coverUrl: String,
     title: String,
     content: String,
-    updatedAt: String,
+    dateString: String,
     username: String,
     categoria: String,
     tags: Array,
-    //user: Object,
     link: String
   },
   computed: {
@@ -2030,7 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
       var maxLength = 80;
 
       if (this.content.length > maxLength) {
-        return this.content.slice(0, 80) + "...";
+        return this.content.slice(0, 170) + "...";
       }
 
       return this.content;
@@ -2051,6 +2054,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _formInputs_TextInput_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formInputs/TextInput.vue */ "./resources/js/components/formInputs/TextInput.vue");
 /* harmony import */ var _post_card_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post-card.vue */ "./resources/js/components/post-card.vue");
+//
 //
 //
 //
@@ -37900,19 +37904,23 @@ var render = function() {
       _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.title))]),
       _vm._v(" "),
       _c("div", { staticClass: "d-flex justify-content-between info" }, [
-        _c("h4", { staticClass: "font-italic" }, [
+        _c("h5", { staticClass: "font-italic" }, [
           _vm._v(
             "di " + _vm._s(_vm.username) + " " + _vm._s(_vm.categoria) + " "
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _c("h5", [_vm._v(_vm._s(_vm.dateString))])
       ]),
       _vm._v(" "),
-      _c("h5", {
-        staticClass: "card-text",
-        domProps: { innerHTML: _vm._s(_vm.contentText) }
-      }),
+      _c("div", { staticClass: "card-p" }, [
+        _c("h5", {
+          staticClass: "card-text",
+          domProps: { innerHTML: _vm._s(_vm.contentText) }
+        })
+      ]),
       _vm._v(" "),
-      _c("div", [
+      _c("div", { staticClass: "bttns-div" }, [
         _c("a", { staticClass: "my-btn", attrs: { href: _vm.link } }, [
           _vm._v("Apri...")
         ])
@@ -37993,6 +38001,7 @@ var render = function() {
             "cover-url": post.cover_url,
             title: post.title,
             username: post.username,
+            dateString: post.dateString,
             categoria: post.categoria,
             "updated-at": post.updated_at,
             content: post.content,

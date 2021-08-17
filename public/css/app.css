@@ -4751,6 +4751,10 @@ a.tag:hover {
   justify-content: center;
 }
 
+.display .article-cont {
+  margin: 10px 30px 10px 30px;
+}
+
 .display .my-card {
   width: 30%;
   height: 600px;
