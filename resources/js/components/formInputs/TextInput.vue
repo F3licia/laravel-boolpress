@@ -1,10 +1,7 @@
 <template>
-  <div class="mb-3">
-    <label class="form-label">
-      {{ label }}
-    </label>
+  <div class="">
     <input
-      class="form-control"
+      class="my-search-input"
       :type="inputType"
       :placeholder="placeholder"
       :value="value"
@@ -17,7 +14,6 @@
 export default {
   name: "TextInput", 
   props: {
-    label: String,
     value: String,
     placeholder: String,
     inputType: {

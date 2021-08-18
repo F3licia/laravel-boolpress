@@ -47,8 +47,8 @@
                     </div>
 
                     <div class="card-p">
-                        @if(strlen($post->content) > 170)
-                           <p>{{ substr($post->content, 0, 170)."..."}}</p>
+                        @if(strlen($post->content) > 150)
+                           <p>{{ substr($post->content, 0, 150)."..."}}</p>
                         @else
                            <p>{{ $post->content }}</p>
                         @endif

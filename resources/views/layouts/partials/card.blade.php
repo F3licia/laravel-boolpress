@@ -50,7 +50,7 @@
 
                             @include('layouts.partials.deleteBtn', [ "id" => $post->id, "resource" => "posts" ]) 
 
-                            <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="my-btn"> Edit </a> 
+                            <a href="{{ route('user.posts.edit', ['post' => $post->id]) }}" class="my-btn"> Modifica </a> 
                     
                         @endif
 

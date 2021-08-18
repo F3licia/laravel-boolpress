@@ -2,19 +2,33 @@
 <div class="">
 
       <form @submit.prevent="filterData">
-          <text-input
-            label="Ricerca per titolo"
-            v-model="filters.title"
-          ></text-input>
-          <text-input
-            label="Ricerca per contenuto"
-            v-model="filters.content"
-          ></text-input>
-          <button type="submit">Filtra</button>
-          <button type="reset">Annulla</button>
+        <div class="searchBox">
 
+            <div>
+              <i class="fas fa-search"></i>
+            </div>
+          
         
+            <div class="sub-box">
+                <button type="submit" class="search-label">Cerca per titolo</button>
+                <text-input
+                  v-model="filters.title"
+                ></text-input>
+            </div>
+
+            <div class="sub-box">
+                <button type="submit" class="search-label">Cerca per contenuto</button>
+                <text-input
+                  v-model="filters.content"
+                ></text-input>
+            </div>
+            <div class="sub-box annulla-btn">
+                <button type="reset" class="my-btn">Annulla</button>
+            </div> 
+            
+        </div>
       </form>
+
       <div class="display">
           <post-card v-for="post in filteredList" 
             :key="post.id"

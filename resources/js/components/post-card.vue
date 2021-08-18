@@ -17,17 +17,17 @@
                     <h2 class="title">{{ title }}</h2>
                      
                     <div class="d-flex justify-content-between info">
-                       <h5 class="font-italic">di {{ username }} {{ categoria }} </h5>
+                       <h5>di {{ username }} {{ categoria }} </h5>
                        <h5>{{ dateString }}</h5>
 
                     </div>
  
                     <div class="card-p">
-                        <h5 class="card-text" v-html="contentText"></h5> 
+                        <h5 v-html="contentText"></h5> 
                     </div>
 
                     <div class="bttns-div">
-                        <a :href="link" class="my-btn">Apri...</a>
+                        <a :href="link" class="my-btn">Apri</a>
                     </div>
                     
                 </div>

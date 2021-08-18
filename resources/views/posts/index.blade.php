@@ -18,7 +18,7 @@
             
         </div>
 
-        @include('layouts.partials.public_display', [ "posts" => $posts, "resource" => "posts" ])
+        @include('layouts.partials.display', [ "posts" => $posts, "resource" => "posts" ])
 
 
     

@@ -1953,13 +1953,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TextInput",
   props: {
-    label: String,
     value: String,
     placeholder: String,
     inputType: {
@@ -2054,6 +2050,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _formInputs_TextInput_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formInputs/TextInput.vue */ "./resources/js/components/formInputs/TextInput.vue");
 /* harmony import */ var _post_card_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post-card.vue */ "./resources/js/components/post-card.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37845,13 +37855,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mb-3" }, [
-    _c("label", { staticClass: "form-label" }, [
-      _vm._v("\n    " + _vm._s(_vm.label) + "\n  ")
-    ]),
-    _vm._v(" "),
+  return _c("div", {}, [
     _c("input", {
-      staticClass: "form-control",
+      staticClass: "my-search-input",
       attrs: { type: _vm.inputType, placeholder: _vm.placeholder },
       domProps: { value: _vm.value },
       on: {
@@ -37904,7 +37910,7 @@ var render = function() {
       _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.title))]),
       _vm._v(" "),
       _c("div", { staticClass: "d-flex justify-content-between info" }, [
-        _c("h5", { staticClass: "font-italic" }, [
+        _c("h5", [
           _vm._v(
             "di " + _vm._s(_vm.username) + " " + _vm._s(_vm.categoria) + " "
           )
@@ -37914,15 +37920,12 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-p" }, [
-        _c("h5", {
-          staticClass: "card-text",
-          domProps: { innerHTML: _vm._s(_vm.contentText) }
-        })
+        _c("h5", { domProps: { innerHTML: _vm._s(_vm.contentText) } })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bttns-div" }, [
         _c("a", { staticClass: "my-btn", attrs: { href: _vm.link } }, [
-          _vm._v("Apri...")
+          _vm._v("Apri")
         ])
       ])
     ])
@@ -37962,33 +37965,58 @@ var render = function() {
         }
       },
       [
-        _c("text-input", {
-          attrs: { label: "Ricerca per titolo" },
-          model: {
-            value: _vm.filters.title,
-            callback: function($$v) {
-              _vm.$set(_vm.filters, "title", $$v)
-            },
-            expression: "filters.title"
-          }
-        }),
-        _vm._v(" "),
-        _c("text-input", {
-          attrs: { label: "Ricerca per contenuto" },
-          model: {
-            value: _vm.filters.content,
-            callback: function($$v) {
-              _vm.$set(_vm.filters, "content", $$v)
-            },
-            expression: "filters.content"
-          }
-        }),
-        _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Filtra")]),
-        _vm._v(" "),
-        _c("button", { attrs: { type: "reset" } }, [_vm._v("Annulla")])
-      ],
-      1
+        _c("div", { staticClass: "searchBox" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "sub-box" },
+            [
+              _c(
+                "button",
+                { staticClass: "search-label", attrs: { type: "submit" } },
+                [_vm._v("Cerca per titolo")]
+              ),
+              _vm._v(" "),
+              _c("text-input", {
+                model: {
+                  value: _vm.filters.title,
+                  callback: function($$v) {
+                    _vm.$set(_vm.filters, "title", $$v)
+                  },
+                  expression: "filters.title"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "sub-box" },
+            [
+              _c(
+                "button",
+                { staticClass: "search-label", attrs: { type: "submit" } },
+                [_vm._v("Cerca per contenuto")]
+              ),
+              _vm._v(" "),
+              _c("text-input", {
+                model: {
+                  value: _vm.filters.content,
+                  callback: function($$v) {
+                    _vm.$set(_vm.filters, "content", $$v)
+                  },
+                  expression: "filters.content"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      ]
     ),
     _vm._v(" "),
     _c(
@@ -38014,7 +38042,24 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("i", { staticClass: "fas fa-search" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sub-box annulla-btn" }, [
+      _c("button", { staticClass: "my-btn", attrs: { type: "reset" } }, [
+        _vm._v("Annulla")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
