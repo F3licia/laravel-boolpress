@@ -17,6 +17,8 @@
                   
                    <h1> {{ Auth::user()->name}}</h1>
                    <h4>Status: user </h4>
+
+                   <img class="img-thumbnail" src="{{asset('/storage/users/'.Auth::user()->avatar_url)}}">
                  
                    <h5><a href="{{ route('user.posts.search')}}" >Fa una ricerca</a></h5>                
                    <h5><a href="{{ route('user.posts.mine')}}" >Guarda tutti i tuoi post</a></h5>
