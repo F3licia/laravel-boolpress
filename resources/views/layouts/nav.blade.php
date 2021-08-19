@@ -1,7 +1,7 @@
      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'my first') }}
+                    {{ config('app.name') }}
                 </a>
              
                {{-- {{Request::route()->getName()}}   nome intestazione pagina--}} 
@@ -68,7 +68,6 @@
                             {{--@if (Auth::user()->type_id == 1)--}}
 
                                      <a class="dropdown-item" href="{{ route('user.home') }}">{{ Auth::user()->name}}</a>
-                                     
 
                                      <a class="dropdown-item" href="{{ route('user.posts.index') }}"> Tutti i post </a>
 

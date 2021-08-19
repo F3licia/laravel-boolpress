@@ -9,7 +9,10 @@ class HomeController extends Controller
 
 {
     public function index() {
-        return view("user.home");
+        $hour = date('H');
+        $greeting = ($hour > 17) ? "Buon pomeriggio, " : (($hour > 12) ? "Buona sera, " : "Buon giorno, ");
+
+        return view("user.home", ['greeting' => $greeting]); 
     }
    
 }
