@@ -34,7 +34,7 @@
                             {{ Auth::user()->name}}</h1>
 
                             <div class="avatar-container">
-                                <img src="{{asset('/storage/users/'.Auth::user()->avatar_url)}}">
+                                <img src="{{asset('/storage/users/'.Auth::user()->name.'/'.Auth::user()->avatar_url)}}">
                             </div>
                         </div>
 
