@@ -60,11 +60,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
 
-                            <label class="btn btn-primary">
-                                Scegli immagine
-                                <input id="avatar_url" type="file" name="avatar_url">
-                            </label>
-
                         </div>
 
                         <div class="form-group row mb-0">

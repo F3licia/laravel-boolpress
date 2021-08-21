@@ -38,6 +38,12 @@
                             </div>
                         </div>
 
+                        <form action="{{route('user.home')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="avatar_url">
+                            <input type="submit" value="Upload">
+                        </form>
+
                     </div>
                  
                  

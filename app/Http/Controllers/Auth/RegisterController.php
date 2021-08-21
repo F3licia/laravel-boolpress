@@ -72,12 +72,6 @@ class RegisterController extends Controller
             'type_id' => 2,
         ]);
 
-       if (request()->hasFile('avatar_url')){
-        $avatar_url = request()->file('avatar_url')->getClientOriginalName();
-        request()->file('avatar_url')->storeAs('users', $user->name.'/'. $avatar_url, '');
-        $user->update(['avatar_url'=>$avatar_url]);
-        }
-
         return $user;
     }
 }

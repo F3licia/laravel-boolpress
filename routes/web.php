@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Routes;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,8 @@ Route::prefix('user')
     ->name("user.")
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+        Route::post('/','HomeController@upload'); //
+
         Route::post('/posts', 'PostController@store')->name('posts.store');
         Route::get('/posts', 'PostController@index')->name('posts.index');
         Route::get('/posts/create','PostController@create')->name('posts.create');
