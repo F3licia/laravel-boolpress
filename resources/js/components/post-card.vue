@@ -8,8 +8,7 @@
                 </div>
             
                 <div class="img-cont">
-                    <img
-                    :src="coverUrl" alt="...">
+                    <img :src="coverUrl" alt="...">
                 </div>
 
                 <div class="article-cont">

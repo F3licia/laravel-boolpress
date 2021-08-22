@@ -34,14 +34,26 @@
                             {{ Auth::user()->name}}</h1>
 
                             <div class="avatar-container">
-                                <img src="{{asset('/storage/users/'.Auth::user()->name.'/'.Auth::user()->avatar_url)}}">
+
+                                @if(Auth::user()->avatar_url)
+                                    <img src="{{asset('/storage/users/'.Auth::user()->name.'/'.Auth::user()->avatar_url)}}">
+                                @else
+                                    <img src="{{asset('/storage/default/user.jpg')}}">
+                                @endif
+                               
                             </div>
                         </div>
 
                         <form action="{{route('user.home')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <input type="file" name="avatar_url">
-                            <input type="submit" value="Upload">
+                            @csrf                         
+
+                            <div class="input-div">
+                                <label class="my-file-upload">
+                                    <input type="file" name="avatar_url">
+                                    <i class="fas fa-image"></i>
+                                    <input type="submit" value="Upload">
+                                </label>
+                            </div>
                         </form>
 
                     </div>

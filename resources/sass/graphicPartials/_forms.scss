@@ -45,9 +45,10 @@
     }
   }
 
-  // // input[type="file"] {
-  // //   display: none;
-  // // }
+  input[type="file"] {
+      display: none;
+  }
+  
   .my-file-upload {
     align-self: flex-start;
     border: 2px solid $main;

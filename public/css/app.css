@@ -4856,6 +4856,10 @@ a.tag:hover {
   font-size: 30px;
 }
 
+input[type=file] {
+  display: none;
+}
+
 .my-file-upload {
   align-self: flex-start;
   border: 2px solid #627a77;

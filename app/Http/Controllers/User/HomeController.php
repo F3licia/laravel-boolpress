@@ -12,9 +12,9 @@ class HomeController extends Controller
 
 {
     public function index() {
-        $hour = date('H');
-        $greeting = ($hour > 17) ? "Buon pomeriggio, " : (($hour > 12) ? "Buona sera, " : "Buon giorno, ");
-
+        $hour = date('H')+ 2; //provvisorio, rivedere timezone !!!
+       
+        $greeting = ($hour > 17) ? "Buona sera, " : (($hour > 12) ? "Buon pomeriggio, " : "Buon giorno, ");
         return view("user.home", ['greeting' => $greeting]); 
     }
 
@@ -25,16 +25,19 @@ class HomeController extends Controller
 
         if($request->hasFile('avatar_url')){
 
-            $avatar_url=$request->file('avatar_url');   
-            $filename=request()->file('avatar_url')->getClientOriginalName();
-            request()->file('avatar_url')->storeAs('users', $user->name.'/'. $filename, '');
-           
+            //$filename=request()->file('avatar_url')->getClientOriginalName(); prende il nome originale del file
+
+            $filename=($user->name .'_avatar.jpg');
+            request()->file('avatar_url')->storeAs('users', $user->name.'/'. $filename );
             $user->update(['avatar_url'=>$filename]);
 
         return redirect()->back();
+
+        }else{
+            return redirect()->back();
         }
     
     }
-   
+
 }
 
