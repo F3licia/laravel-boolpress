@@ -1,6 +1,6 @@
 .dashboard{
     margin: 60px 60px;
-    height: 800px;
+    height: 550px;
     background-color: $main;
     border-radius: 20px;
     display: flex;
@@ -8,19 +8,35 @@
     & .side-bar{
         display: flex;
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.123); 
-        margin: 30px 0px 30px 40px;
-        width: 400px; 
 
-        &>*{
+        margin: 50px 0px 30px 40px;
+        width: 300px; 
+
+        &>a{
+            font-size: 18px;
             color: white;
+
+            &>i{
+               margin: 10px;
+               font-size: 25px;
+            }
+        }
+
+        &>h3{
+            margin-left: 5px;
+            color: white;
+
+            &>i{
+               margin: 5px;
+               font-size: 25px;
+            }
         }
     }
 
     & .frame{
         width: 100%;
         //height: 740px;
-        margin: 30px 40px 30px 0;
+        margin: 45px 40px 30px 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -39,7 +55,7 @@
     border-radius: 30px;
     align-items: center;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.226);
-    
+
     &>*{
         margin-left: 10px;
         margin-right: 10px;
@@ -49,8 +65,6 @@
 .welcome-greeting{
     width: 200px;
 }
-
-
 
 .avatar-container{
     position: relative;
@@ -81,10 +95,16 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     flex-direction: column;
-    background: #ddd;
+    padding: 10px;
+    color: $main;
   }
   
   #toggleDiv.hide {
     display: none;
+    animation-duration: 4s;
   }
+
+
+  

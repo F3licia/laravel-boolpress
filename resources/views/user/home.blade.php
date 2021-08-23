@@ -9,19 +9,36 @@
     @endif
 
     <div class="dashboard">
-              
                     <div class="side-bar">
 
                         @if(  Auth::user()->type_id == 2 )
-                            <p>Status: User</p>
+                            <h3>
+                                <i class="fas fa-child"></i>
+                                Status: User
+                            </h3>
                         @elseif(Auth::user()->type_id == 1)
-                            <p>Status: Admin</p>
+                            <h3>
+                                <i class="far fa-grin-stars"></i>
+                                Status: Admin
+                            </h3>
                         @endif
 
-                        <a href="{{ route('user.posts.search')}}" >Fa una ricerca</a>             
-                        <a href="{{ route('user.posts.mine')}}" >I tuoi post</a>
-                        <a href="{{ route('user.posts.index') }}"> Tutti gli articoli</a>
-                        <a href="{{ route('user.posts.create') }}"> Pubblica nuovo</a>
+                        <a href="{{ route('user.posts.search')}}" >
+                            <i class="fas fa-binoculars"></i>
+                            Fa una ricerca
+                        </a>             
+                        <a href="{{ route('user.posts.mine')}}" >
+                            <i class="fas fa-feather-alt"></i>
+                            I tuoi post
+                        </a>
+                        <a href="{{ route('user.posts.index') }}">
+                            <i class="fas fa-quote-right"></i>
+                            Tutti gli articoli
+                        </a>
+                        <a href="{{ route('user.posts.create') }}">
+                            <i class="far fa-hand-point-right"></i>
+                            Pubblica nuovo
+                        </a>
                         
                     </div> 
                     
@@ -44,14 +61,13 @@
                             </div>
 
                             <div id="toggleDiv" class="hide">
-                                <p>Carica un'immagine</p>
                                 <form action="{{route('user.home')}}" method="POST" enctype="multipart/form-data">
                                     @csrf                         
 
                                     <div class="input-div">
                                         <label class="my-file-upload">
                                             <input type="file" name="avatar_url">
-                                            <i class="fas fa-image"></i>
+                                            <i class="fas fa-camera"></i>
                                         </label>
                                     </div>
                                     <input type="submit" value="Upload" class="my-btn">
