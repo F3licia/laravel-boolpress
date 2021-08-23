@@ -29,32 +29,37 @@
 
                         <div class="round-container">
                          
-                            
-                            <h1>{{ __($greeting) }}
-                            {{ Auth::user()->name}}</h1>
+                            <div class="welcome-greeting">
+                                <h1>{{ __($greeting) }}
+                                {{ Auth::user()->name}}</h1>
+                            </div>
+                           
 
-                            <div class="avatar-container">
-
+                            <div class="avatar-container mytoggle">
                                 @if(Auth::user()->avatar_url)
                                     <img src="{{asset('/storage/users/'.Auth::user()->name.'/'.Auth::user()->avatar_url)}}">
                                 @else
                                     <img src="{{asset('/storage/default/user.jpg')}}">
                                 @endif
-                               
                             </div>
+
+                            <div id="toggleDiv" class="hide">
+                                <p>Carica un'immagine</p>
+                                <form action="{{route('user.home')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf                         
+
+                                    <div class="input-div">
+                                        <label class="my-file-upload">
+                                            <input type="file" name="avatar_url">
+                                            <i class="fas fa-image"></i>
+                                        </label>
+                                    </div>
+                                    <input type="submit" value="Upload" class="my-btn">
+
+                                </form>
+                            </div>
+
                         </div>
-
-                        <form action="{{route('user.home')}}" method="POST" enctype="multipart/form-data">
-                            @csrf                         
-
-                            <div class="input-div">
-                                <label class="my-file-upload">
-                                    <input type="file" name="avatar_url">
-                                    <i class="fas fa-image"></i>
-                                    <input type="submit" value="Upload">
-                                </label>
-                            </div>
-                        </form>
 
                     </div>
                  

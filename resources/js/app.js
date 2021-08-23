@@ -36,7 +36,11 @@ const app = new Vue({
 
 //-------------------------//
 
-function myFunction() {
-    var element = document.getElementById("myToggle");
-    element.classList.toggle("mystyle");
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('.mytoggle');
+    const elementToToggle = document.getElementById('toggleDiv');    
+  
+    button.addEventListener('mousedown', () => {
+      elementToToggle.classList.toggle('hide');
+    });
+  });

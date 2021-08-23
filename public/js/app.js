@@ -50315,10 +50315,13 @@ var app = new Vue({
   el: '#app'
 }); //-------------------------//
 
-function myFunction() {
-  var element = document.getElementById("myToggle");
-  element.classList.toggle("mystyle");
-}
+document.addEventListener('DOMContentLoaded', function () {
+  var button = document.querySelector('.mytoggle');
+  var elementToToggle = document.getElementById('toggleDiv');
+  button.addEventListener('mousedown', function () {
+    elementToToggle.classList.toggle('hide');
+  });
+});
 
 /***/ }),
 
