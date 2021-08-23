@@ -1,4 +1,9 @@
-
+.main-welcome{
+  overflow: hidden;
+//   & *{
+//       border: 1px solid red;
+//   }
+}
             
 
 .full-height {
@@ -26,6 +31,7 @@
 }
 
 .title {
+    margin-top: 100px;
     font-size: 84px;
     font-weight: 300;
     color: $main;
@@ -49,3 +55,25 @@
 .m-b-md {
     margin-bottom: 30px;
 }
+
+
+
+
+.my-animation-svg{
+    width: 100%;
+    position: relative;
+    top: 150px;
+    z-index: 0;
+    }
+    
+    #Livello_1{
+      animation: wind 10s ease;
+      animation-iteration-count:infinite;
+      
+    }
+    
+    @keyframes wind{
+        from {  transform: rotate(-20deg);  transform-origin: bottom ;}
+        50% {  transform: rotate(40deg); transform-origin: bottom ;}
+        to {  transform: rotate(-20deg); transform-origin: bottom;}
+    }
