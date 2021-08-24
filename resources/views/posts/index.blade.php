@@ -4,7 +4,7 @@
 @section('content')
 
 
-        <div class="container d-flex align-items-center flex-column ">
+        <div class="container d-flex align-items-center flex-column mg-top">
             <h3>Wanna read more? Join us!</h3>
             <h3>
                 @if (Route::has('login'))

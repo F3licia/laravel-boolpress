@@ -4660,6 +4660,10 @@ a.tag:hover {
   text-decoration: underline;
 }
 
+.mg-top {
+  margin-top: 100px;
+}
+
 .article {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -5107,7 +5111,7 @@ input[type=checkbox]:checked {
 }
 
 .welcome-greeting {
-  width: 200px;
+  width: 260px;
 }
 
 .avatar-container {
@@ -5116,7 +5120,6 @@ input[type=checkbox]:checked {
   width: 220px;
   overflow: hidden;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.226);
   cursor: pointer;
 }
 
@@ -5150,6 +5153,7 @@ input[type=checkbox]:checked {
 
 .main-welcome {
   overflow: hidden;
+  position: relative;
 }
 
 .full-height {
@@ -5204,48 +5208,94 @@ input[type=checkbox]:checked {
 
 .my-animation-svg {
   width: 100%;
-  position: relative;
-  top: 150px;
-  z-index: 0;
+  max-height: 100%;
+  padding: 20px 60px 20px 60px;
+  position: fixed;
+  z-index: -2;
 }
 
-#Livello_1 {
-  -webkit-animation: wind 10s ease;
-          animation: wind 10s ease;
+.my-animation-svg * {
+  opacity: 95%;
+}
+
+#branch_1 {
+  -webkit-animation: wind_1 10s ease;
+          animation: wind_1 10s ease;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
 
-@-webkit-keyframes wind {
+@-webkit-keyframes wind_1 {
   from {
-    transform: rotate(-20deg);
+    transform: rotate(-5deg);
     transform-origin: bottom;
   }
 
   50% {
-    transform: rotate(40deg);
+    transform: rotate(0deg);
     transform-origin: bottom;
   }
 
   to {
-    transform: rotate(-20deg);
+    transform: rotate(-5deg);
     transform-origin: bottom;
   }
 }
 
-@keyframes wind {
+@keyframes wind_1 {
   from {
-    transform: rotate(-20deg);
+    transform: rotate(-5deg);
     transform-origin: bottom;
   }
 
   50% {
-    transform: rotate(40deg);
+    transform: rotate(0deg);
     transform-origin: bottom;
   }
 
   to {
-    transform: rotate(-20deg);
+    transform: rotate(-5deg);
+    transform-origin: bottom;
+  }
+}
+
+#branch_2 {
+  -webkit-animation: wind_2 10s ease;
+          animation: wind_2 10s ease;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes wind_2 {
+  from {
+    transform: rotate(-8deg);
+    transform-origin: bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+    transform-origin: bottom;
+  }
+
+  to {
+    transform: rotate(-8deg);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes wind_2 {
+  from {
+    transform: rotate(-8deg);
+    transform-origin: bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+    transform-origin: bottom;
+  }
+
+  to {
+    transform: rotate(-8deg);
     transform-origin: bottom;
   }
 }

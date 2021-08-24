@@ -1,7 +1,7 @@
 
 @if(count($posts) == 0)
     <div class="container">
-        <div class="d-flex flex-wrap justify-content-around">
+        <div class="d-flex flex-wrap justify-content-around mg-top">
             <h3>
                 Pare non ci sia nulla qui, è il momento di rimediare!
                 <a href="{{route('user.posts.create')}}">Pubblica un nuovo post!</a>

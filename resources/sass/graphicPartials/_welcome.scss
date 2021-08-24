@@ -1,5 +1,6 @@
 .main-welcome{
   overflow: hidden;
+  position: relative;
 //   & *{
 //       border: 1px solid red;
 //   }
@@ -61,19 +62,38 @@
 
 .my-animation-svg{
     width: 100%;
-    position: relative;
-    top: 150px;
-    z-index: 0;
+    max-height: 100%;
+    padding: 20px 60px 20px 60px;
+    position: fixed;
+    z-index: -2;
+
+    & *{
+        opacity: 95%;
+    }
     }
     
-    #Livello_1{
-      animation: wind 10s ease;
+
+    #branch_1{
+      animation: wind_1 10s ease;
       animation-iteration-count:infinite;
       
     }
     
-    @keyframes wind{
-        from {  transform: rotate(-20deg);  transform-origin: bottom ;}
-        50% {  transform: rotate(40deg); transform-origin: bottom ;}
-        to {  transform: rotate(-20deg); transform-origin: bottom;}
+    @keyframes wind_1{
+        from {  transform: rotate(-5deg);  transform-origin: bottom ;}
+        50% {  transform: rotate(0deg); transform-origin: bottom ;}
+        to {  transform: rotate(-5deg); transform-origin: bottom;}
     }
+    
+
+    #branch_2{
+        animation: wind_2 10s ease;
+        animation-iteration-count:infinite;
+        
+      }
+      
+      @keyframes wind_2{
+          from {  transform: rotate(-8deg);  transform-origin: bottom ;}
+          50% {  transform: rotate(-10deg); transform-origin: bottom ;}
+          to {  transform: rotate(-8deg); transform-origin: bottom;}
+      }
