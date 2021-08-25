@@ -39,12 +39,13 @@ public function filter(Request $request) {
   foreach ($filters as $filter => $value) {
       $result->where($filter, "LIKE", "%$value%");
   }
-
+ 
   $posts = $result->get();
 
   foreach ($posts as $post) {
     $post->cover_url = $post->cover_url ? asset('storage/' . $post->cover_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
     $post->link = route("posts.show", ["slug" => $post->slug]);
+    $post->username = $post->user->name;
 
     if (strlen($post->content) > 80) {
       $post->content = substr($post->content, 0, 80) . "...";

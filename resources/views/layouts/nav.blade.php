@@ -58,7 +58,13 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                                    @if(Auth::user()->avatar_url)
+                                      <img class="my-profile-image" src="{{asset('/storage/users/'.Auth::user()->name .'/'.Auth::user()->avatar_url)}}" alt="profile_image">
+                                    @endif
+
                                     {{ Auth::user()->name }}
                                 </a>
 

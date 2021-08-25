@@ -17,7 +17,12 @@
             </div>
 
             <div class="d-flex justify-content-center">
-                <h4 class="mg-btt">di  {{$post->user->name}} </h4>
+
+                <h4 class="mg-btt">di  {{$post->user->name}} 
+                    @if($post->user->avatar_url)
+                    <img class="my-profile-image" src="{{asset('/storage/users/'. $post->user->name .'/'. $post->user->avatar_url)}}" alt="profile_image" >
+                  @endif
+                </h4>
             </div>
 
         @if($post->cover_url)

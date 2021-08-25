@@ -4664,11 +4664,20 @@ a.tag:hover {
   margin-top: 100px;
 }
 
+.my-profile-image {
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  background-color: none;
+  width: 70px;
+  height: 72px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .article {
   margin-top: 50px;
   margin-bottom: 50px;
   padding: 30px 0 20px 0;
-  margin: 0%;
   position: relative;
   background-color: white;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
@@ -4761,7 +4770,7 @@ a.tag:hover {
 
 .display .my-card {
   width: 30%;
-  height: 600px;
+  height: 630px;
   margin: 20px 10px;
   position: relative;
   background-color: white;
@@ -5098,7 +5107,7 @@ input[type=checkbox]:checked {
   height: 220px;
   display: flex;
   justify-content: space-evenly;
-  padding: 0 20px;
+  padding: 10px 20px;
   background-color: white;
   border-radius: 30px;
   align-items: center;
@@ -5108,6 +5117,7 @@ input[type=checkbox]:checked {
 .round-container > * {
   margin-left: 10px;
   margin-right: 10px;
+  color: #474c46;
 }
 
 .welcome-greeting {
@@ -5116,10 +5126,11 @@ input[type=checkbox]:checked {
 
 .avatar-container {
   position: relative;
-  height: 220px;
-  width: 220px;
+  height: 200px;
+  width: 200px;
   overflow: hidden;
   border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.336);
   cursor: pointer;
 }
 
